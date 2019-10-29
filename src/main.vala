@@ -9,7 +9,7 @@ public class JSTest.Application : Gtk.Application {
     }
     static construct {
         //settings = new Settings (Application.instance.application_id);
-        
+
     }
 
     protected override void activate () {
@@ -21,9 +21,9 @@ public class JSTest.Application : Gtk.Application {
         });
         main_window.show_all ();
     }
-    
-    
-    
+
+
+
 
     public static int main (string[] args) {
         var app = new Application ();

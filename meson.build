@@ -4,6 +4,7 @@ project ('com.github.timecraft.jstest', 'vala', 'c')
 # Arguments
 add_global_arguments ('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name ()), language:'c')
 
+
 # GNOME and i18n
 gnome = import ('gnome')
 i18n = import ('i18n')

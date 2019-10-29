@@ -10,12 +10,12 @@ executable (
     join_paths ('main.vala'),
     join_paths ('Constants.vala'),
     join_paths ('FileManager.vala'),
-    
+
 
     # Views
     join_paths ('Views', 'SourceView.vala'),
     join_paths ('Views', 'WebView.vala'),
-    join_paths ('Views', 'JSConsole.vala'),
+#   join_paths ('Views', 'JSConsole.vala'),
 
     # Widgets
     join_paths ('Widgets', 'Window.vala'),
@@ -30,7 +30,9 @@ executable (
         dependency ('gtksourceview-3.0'),
         dependency ('glib-2.0'),
         dependency ('webkit2gtk-4.0'),
-        dependency ('javascriptcoregtk-4.0')
+        dependency ('javascriptcoregtk-4.0'),
+        #dependency('libsoup-2.4')
+        #dependency ('webkit2gtk-web-extension-4.0')
     ],
 
     install:true

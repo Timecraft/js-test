@@ -19,7 +19,7 @@ public class JSTest.FileManager : Object {
             DataOutputStream dos = new DataOutputStream (fos);
             dos.put_string (source_view.buffer.text, null);
         }
-        } 
+        }
         catch (Error e) {
             new Alert (_("An error occurred"), e.message);
         }
@@ -46,7 +46,7 @@ public class JSTest.FileManager : Object {
         var file = get_code_test_file ();
         return file.get_path ();
     }
-    
+
     public string read_file () {
         write_to_file ();
         var file = get_code_test_file ();

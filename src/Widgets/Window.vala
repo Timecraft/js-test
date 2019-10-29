@@ -1,16 +1,15 @@
 using Granite.Widgets;
 
 public class JSTest.MainWindow : Gtk.Window {
-    
+
     private Gtk.Paned pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-    private Gtk.Paned web_pane = new Gtk.Paned (Gtk.Orientation.VERTICAL);
     private JSTest.HeaderBar header_bar = HeaderBar.get_instance ();
-    
-    
+
+
     private JSTest.SourceView source_view = SourceView.get_instance ();
     private JSTest.WebView web_view = WebView.get_instance ();
-    private JSTest.JSConsole console = JSConsole.get_instance ();
-    
+
+
 
     public MainWindow (Gtk.Application application) {
             Object (application: application,
@@ -20,15 +19,16 @@ public class JSTest.MainWindow : Gtk.Window {
                     width_request: Constants.APPLICATION_WIDTH);
         }
     construct {
-        web_pane.set_size_request (Constants.APPLICATION_HEIGHT / 2, Constants.APPLICATION_WIDTH / 3);
-        web_pane.add1 (web_view);
-        //web_pane.add2 (console); TODO: Find a way to captuer Javascript console messages or implement a Javascript console
+        //web_pane.set_size_request (Constants.APPLICATION_HEIGHT / 2, Constants.APPLICATION_WIDTH / 3);
+        //web_pane.add1 (web_view);
+
+
         pane.add1 (source_view);
-        pane.add2 (web_pane);
+        pane.add2 (web_view);
         add (pane);
         set_titlebar (header_bar);
         add_shortcuts ();
-        
+
     }
 
     private void add_shortcuts () {

@@ -33,8 +33,7 @@ public class JSTest.SourceView : Gtk.SourceView {
 
             // int and uint
             tab_width : 4,
-                // 2/3 of the default application width
-            width_request : ((2 * Constants.APPLICATION_WIDTH) / 3)
+            width_request : (Constants.APPLICATION_WIDTH / 2)
 
 
         );
@@ -70,9 +69,9 @@ public class JSTest.SourceView : Gtk.SourceView {
         source_buffer.highlight_syntax = true;
             // Background style
         source_buffer.set_style_scheme (style_scheme_manager.get_scheme (code_settings.get_string ("style-scheme")));
-        
-        
-        
+
+
+
         cut_clipboard.connect (() => {
                 /* If no text is selected, cut the current line */
                 if (!buffer.has_selection) {
@@ -95,7 +94,7 @@ public class JSTest.SourceView : Gtk.SourceView {
             });
 
     }
-    
+
 
     public static SourceView get_instance () {
         if (instance == null) {
