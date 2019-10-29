@@ -23,13 +23,12 @@
 - libgtk-3-dev
 - libgranite-dev
 - libwebkit2gtk-4.0-dev
-- libjavascriptcoregtk-4.0-dev
 - libgtksourceview-3.0-dev
 - elementary-sdk
 - meson
 
 ##### A one liner
-`sudo apt install valac libgtk-3-dev libgranite-dev libwebkit2gtk-4.0-dev libjavascriptcoregtk-4.0-dev libgtksourceview-3.0-dev elementary-sdk meson`
+`sudo apt install valac libgtk-3-dev libgranite-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev elementary-sdk meson`
 
 #### Installation
 

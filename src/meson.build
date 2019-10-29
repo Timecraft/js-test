@@ -29,10 +29,7 @@ executable (
         dependency ('gtk+-3.0'),
         dependency ('gtksourceview-3.0'),
         dependency ('glib-2.0'),
-        dependency ('webkit2gtk-4.0'),
-        dependency ('javascriptcoregtk-4.0'),
-        #dependency('libsoup-2.4')
-        #dependency ('webkit2gtk-web-extension-4.0')
+        dependency ('webkit2gtk-4.0')
     ],
 
     install:true
