@@ -5,10 +5,17 @@
     <metadata_license>CC0</metadata_license>
     <project_license>GPL-3.0+</project_license>
 
-    <name>JS-Test</name>
+    <name>JS Test</name>
     <summary>Test your JavaScript</summary>
 
     <description>
+        <p>A tool to run some JavaScript.</p>
+        <p>Features:</p>
+        <ul>
+            <li>Test some JavaScript without having to fire up a web browser or node.js.</li>
+            <li>Inherits editor style from elementary Code</li>
+            <li>Run your JavaScript with a simple shortcut (ctrl+r)</li>
+        </ul>
     </description>
 
     <provides>
@@ -45,6 +52,11 @@
     </content_rating>
 
     <releases>
+        <release version="1.0.0">
+            <description>
+                Initial release to AppCenter
+            </description>
+        </release>
     </releases>
 
     <screenshots>
