@@ -31,14 +31,18 @@ public class JSTest.Application : Gtk.Application {
     }
     static construct {
         //settings = new Settings (Application.instance.application_id);
-
+                            // e.g. 2.8.1
+        string version =    WebKit.get_major_version ().to_string () + "." +
+                            WebKit.get_minor_version ().to_string () + "." +
+                            WebKit.get_micro_version ().to_string ();
+        message ("Using WebKit " + version);
     }
 
     protected override void activate () {
         JSTest.MainWindow main_window = new JSTest.MainWindow (this);
         shutdown.connect ( () => {
             File destroyer =  File.new_for_path ("jstest.js");
-            destroyer.delete_async (Priority.DEFAULT, null);
+            destroyer.delete_async.begin (Priority.DEFAULT, null);
             message ("\"jstest.js\" has been deleted");
         });
         main_window.show_all ();
