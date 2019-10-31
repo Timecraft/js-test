@@ -77,7 +77,32 @@ public class JSTest.SourceView : Gtk.SourceView {
         set_right_margin_position (code_settings.get_uint ("right-margin-position"));
 
             // strings
-        override_font (Pango.FontDescription.from_string (code_settings.get_string ("font")));
+        //override_font (Pango.FontDescription.from_string (code_settings.get_string ("font")));
+
+
+        string[] font = code_settings.get_string ("font").split (" ", -1);
+
+        string font_size = font [font.length - 1] + "pt";
+ //       font.remove_index (font.length);
+        string font_name = "";
+        foreach (string current in font) {
+            if (current != font [font.length - 1]) {
+                font_name += current;
+                font_name += " ";
+                message (current);
+            }
+
+        }
+
+        Granite.Widgets.Utils.set_theming_for_screen (this.get_screen (),
+                                                            ".sourceview { font-family:\"" +
+                                                             font_name +
+                                                            "\"; " +
+                                                            "font-size: " +
+                                                            font_size +
+                                                            ";}",
+                                                            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+                                                            message (code_settings.get_string ("font"));
 
             // Create language manager
         language_manager = Gtk.SourceLanguageManager.get_default ();
