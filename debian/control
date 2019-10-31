@@ -1,0 +1,21 @@
+Source: com.github.timecraft.jstest
+Section: x11
+Priority: optional
+Maintainer: Timecraft <timemaster23x@gmail.com>
+Build-Depends: meson,
+	       	gettext,
+               	debhelper (>= 10.5.1),
+               	libgtk-3-dev (>= 3.22),
+		libglib2.0-dev (>= 2.56),
+               	valac (>= 0.40.0),
+
+	      	libwebkit2gtk-4.0-dev (>= 2.24),
+		libgtksourceview-3.0-dev (>= 3.24),
+		libgranite-dev (>= 5.2)
+Standards-Version: 4.1.1
+
+Package: com.github.timecraft.jstest
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Pre-Depends: dpkg (>= 1.15.6)
+Description: JavaScript tester
