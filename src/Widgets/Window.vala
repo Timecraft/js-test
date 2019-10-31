@@ -63,6 +63,12 @@ public class JSTest.MainWindow : Gtk.Window {
                         message ("Quitting.");
                         this.destroy ();
                     }
+                    break;
+                case (Gdk.Key.r):
+                    if ((key.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+                        WebView web_view = WebView.get_instance ();
+                        web_view.run_code ();
+                    }
                 break;
             }
         return false;
