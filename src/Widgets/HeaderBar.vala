@@ -41,7 +41,7 @@ public class JSTest.HeaderBar : Gtk.HeaderBar {
         run_button.tooltip_text = "Run script";
         pack_end (run_button);
         run_button.clicked.connect (() => {
-            message ("Running script...");
+            
             WebView web_view = WebView.get_instance ();
             web_view.run_code ();
 //            JSConsole.get_instance ().get_buffer ().text = "";

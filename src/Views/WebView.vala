@@ -55,7 +55,7 @@ public class JSTest.WebView : WebKit.WebView {
         return instance;
     }
     public void run_code () {
-
+        message ("Running script...");
         inspector.show ();
         load_html ("<script>" + file_manager.read_file () + "</script>", null);
     }
