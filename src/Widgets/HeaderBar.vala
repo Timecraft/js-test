@@ -38,7 +38,7 @@ public class JSTest.HeaderBar : Gtk.HeaderBar {
         set_title (_("JS Test"));
 
         Gtk.Button run_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic",Gtk.IconSize.LARGE_TOOLBAR);
-        run_button.tooltip_text = "Run script";
+        run_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>R"}, _("Run Script"));
         pack_end (run_button);
         
         CopyButton copy_button = CopyButton.get_instance ();

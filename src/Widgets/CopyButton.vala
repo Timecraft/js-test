@@ -29,12 +29,12 @@ public class JSTest.CopyButton : Gtk.Button {
     
     public CopyButton () {
         Object (
-            image: new Gtk.Image.from_icon_name ("edit-copy-symbolic", Gtk.IconSize.LARGE_TOOLBAR),
-            tooltip_text: "Copy script <Ctrl+i>"
+            image: new Gtk.Image.from_icon_name ("edit-copy-symbolic", Gtk.IconSize.LARGE_TOOLBAR)
         );
     }
     construct {
         add_accelerator ("clicked",accel_group, Gdk.Key.i, Gdk.ModifierType.CONTROL_MASK, Gtk.AccelFlags.VISIBLE);
+        tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>I"}, _("Copy Script"));
         clicked.connect ( () => {
             clipboard.set_text (source_view.buffer.text, -1);
         });
