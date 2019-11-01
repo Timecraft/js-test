@@ -1,10 +1,6 @@
 # JSTest
 ## Test some JavaScript
 
-#### Author: Timecraft:
-
-#### timemaster23x@gmail.com
-
 ![BuildStatus](https://travis-ci.org/Timecraft/js_test.svg?branch=master)
 
 ### Screenshots
