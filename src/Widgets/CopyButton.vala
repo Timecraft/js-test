@@ -26,6 +26,8 @@ public class JSTest.CopyButton : Gtk.Button {
     private Gtk.Clipboard clipboard = Gtk.Clipboard.get (Gdk.SELECTION_CLIPBOARD);
     private SourceView source_view = SourceView.get_instance ();
     private Gtk.AccelGroup accel_group = new Gtk.AccelGroup ();
+    private Toast copy_success = new Toast ("Script copied to clipboard");
+    private Overlay overlay = Overlay.get_instance ();
     
     public CopyButton () {
         Object (
@@ -35,8 +37,11 @@ public class JSTest.CopyButton : Gtk.Button {
     construct {
         add_accelerator ("clicked",accel_group, Gdk.Key.i, Gdk.ModifierType.CONTROL_MASK, Gtk.AccelFlags.VISIBLE);
         tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>I"}, _("Copy Script"));
+        overlay.add_overlay (copy_success);
+        
         clicked.connect ( () => {
             clipboard.set_text (source_view.buffer.text, -1);
+            copy_success.send_notification ();
         });
     }
     

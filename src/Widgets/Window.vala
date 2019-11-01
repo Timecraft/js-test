@@ -25,12 +25,13 @@ using Granite.Widgets;
 public class JSTest.MainWindow : Gtk.Window {
 
     private Gtk.Paned pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-    private JSTest.HeaderBar header_bar = HeaderBar.get_instance ();
+    private HeaderBar header_bar = HeaderBar.get_instance ();
 
 
-    private JSTest.SourceView source_view = SourceView.get_instance ();
-    private JSTest.WebView web_view = WebView.get_instance ();
-    
+    private SourceView source_view = SourceView.get_instance ();
+    private WebView web_view = WebView.get_instance ();
+    private Overlay overlay = Overlay.get_instance ();
+
 
 
 
@@ -48,7 +49,8 @@ public class JSTest.MainWindow : Gtk.Window {
 
         pane.add1 (source_view);
         pane.add2 (web_view);
-        add (pane);
+        overlay.add (pane);
+        add (overlay);
         set_titlebar (header_bar);
         add_shortcuts ();
 
