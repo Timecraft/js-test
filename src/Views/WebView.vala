@@ -35,7 +35,9 @@ public class JSTest.WebView : WebKit.WebView {
 
 
     public WebView () {
-
+        Object (
+            is_ephemeral: true
+        );
     }
     construct {
         WebKit.Settings web_settings = new WebKit.Settings ();
@@ -58,6 +60,7 @@ public class JSTest.WebView : WebKit.WebView {
     public void run_code () {
         message ("Running script...");
         inspector.show ();
-        load_html ("<script>" + file_manager.read_file () + "</script>", null);
+        load_html ("<script>" + file_manager.read_file () + "</script>", "JS Test");
+        
     }
 }
