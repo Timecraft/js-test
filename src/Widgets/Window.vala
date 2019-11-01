@@ -30,6 +30,7 @@ public class JSTest.MainWindow : Gtk.Window {
 
     private JSTest.SourceView source_view = SourceView.get_instance ();
     private JSTest.WebView web_view = WebView.get_instance ();
+    
 
 
 
