@@ -15,11 +15,13 @@ executable (
     # Views
     join_paths ('Views', 'SourceView.vala'),
     join_paths ('Views', 'WebView.vala'),
+    
 #   join_paths ('Views', 'JSConsole.vala'),
 
     # Widgets
     join_paths ('Widgets', 'Window.vala'),
     join_paths ('Widgets', 'HeaderBar.vala'),
+    join_paths ('Widgets', 'CopyButton.vala'),
 
     # Dialogs
     join_paths ('Dialogs', 'Alert.vala'),

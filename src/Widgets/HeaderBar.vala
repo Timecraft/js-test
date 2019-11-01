@@ -40,6 +40,10 @@ public class JSTest.HeaderBar : Gtk.HeaderBar {
         Gtk.Button run_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic",Gtk.IconSize.LARGE_TOOLBAR);
         run_button.tooltip_text = "Run script";
         pack_end (run_button);
+        
+        CopyButton copy_button = CopyButton.get_instance ();
+        pack_end (copy_button);
+        
         run_button.clicked.connect (() => {
             
             WebView web_view = WebView.get_instance ();
