@@ -4,7 +4,7 @@
 [![BuildStatus](https://travis-ci.org/Timecraft/js_test.svg?branch=master)](https://travis-ci.org/Timecraft/js_test)
 
 ### Screenshots
-#### Coming soon!
+
 
 ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.jstest.mainwindow.png)
 <br/>
