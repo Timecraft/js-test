@@ -89,7 +89,7 @@ public class JSTest.SourceView : Gtk.SourceView {
             if (current != font [font.length - 1]) {
                 font_name += current;
                 font_name += " ";
-                message (current);
+
             }
 
         }
@@ -102,7 +102,7 @@ public class JSTest.SourceView : Gtk.SourceView {
                                                             font_size +
                                                             ";}",
                                                             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-                                                            message (code_settings.get_string ("font"));
+
 
             // Create language manager
         language_manager = Gtk.SourceLanguageManager.get_default ();
