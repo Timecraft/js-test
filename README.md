@@ -1,7 +1,7 @@
 # JSTest
 ## Test some JavaScript
 
-![BuildStatus](https://travis-ci.org/Timecraft/js_test.svg?branch=master)
+[![BuildStatus](https://travis-ci.org/Timecraft/js_test.svg?branch=master)](https://travis-ci.org/Timecraft/js_test)
 
 ### Screenshots
 #### Coming soon!
