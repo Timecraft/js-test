@@ -72,7 +72,12 @@ public class JSTest.MainWindow : Gtk.Window {
                         WebView web_view = WebView.get_instance ();
                         web_view.run_code ();
                     }
-                break;
+                    break;
+                case (Gdk.Key.i):
+                    if ((key.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+                        CopyButton.get_instance ().click ();
+                    } 
+                    break;
             }
         return false;
     });
