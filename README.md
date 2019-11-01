@@ -9,7 +9,7 @@
 ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.jstest.mainwindow.png)
 <br/>
 <br/>
-~[JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.jstest.sample.png)
+[JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.jstest.sample.png)
 
 <br/>
 <br/>
