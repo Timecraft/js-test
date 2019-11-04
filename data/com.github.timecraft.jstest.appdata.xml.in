@@ -60,6 +60,12 @@
     </releases>
 
     <screenshots>
+        <screenshot type="default">
+            <image>https://raw.githubusercontent.com/Timecraft/JS_Test/master/data/images/com.github.timecraft.jstest.mainwindow.png</image>
+        </screenshot>
+        <screenshot type="default">
+            <image>https://raw.githubusercontent.com/Timecraft/JS_Test/master/data/images/com.github.timecraft.jstest.sample.png</image>
+        </screenshot>
     </screenshots>
 
     <developer_name>Timecraft</developer_name>
