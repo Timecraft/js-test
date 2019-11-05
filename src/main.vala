@@ -52,7 +52,7 @@ public class JSTest.Application : Gtk.Application {
         });
 
 
-        if (does_schema_exist (Constants.APPLICATION_NAME, Constants.APPLICATION_NAME.replace (".", "/"))) {
+        if (does_schema_exist (Constants.APPLICATION_NAME.replace (".", "/"), Constants.APPLICATION_NAME)) {
             app_settings = new Settings (Constants.APPLICATION_NAME);
             go_to_last_saved_position (main_window);
             go_to_last_saved_size (main_window);

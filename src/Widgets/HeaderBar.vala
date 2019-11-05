@@ -29,9 +29,11 @@ public class JSTest.HeaderBar : Gtk.HeaderBar {
 
     }
     construct {
-        GLib.Settings code_settings = new GLib.Settings ("io.elementary.code.settings");
-        if (code_settings.get_boolean ("prefer-dark-style")){
-            Utils.set_theming_for_screen (this.get_screen (), "@define-color textColorPrimary rgba (0,0,0,1);", Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        if (does_schema_exist ("io/elementary/code/settings", "io.elementary.code.settings")) {
+            GLib.Settings code_settings = new GLib.Settings ("io.elementary.code.settings");
+            if (code_settings.get_boolean ("prefer-dark-style")){
+                Utils.set_theming_for_screen (this.get_screen (), "@define-color textColorPrimary rgba (0,0,0,1);", Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            }
         }
         Utils.set_color_primary (this, Constants.APPLICATION_BRAND);
         set_show_close_button (true);
