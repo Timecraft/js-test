@@ -70,27 +70,29 @@ public class JSTest.SourceView : Gtk.SourceView {
             does_schema_exist ("org.gnome.gedit.preferences.editor") || 
             does_schema_exist ("com.github.timecraft.jstest.elementary-code")) {
             
-                if (does_schema_exist ("io.elementary.code.settings")) {
+                if (does_schema_exist ("io.elementary.code.settings")) { // Found Code's settings
                     code_settings = new GLib.Settings ("io.elementary.code.settings");
+                    gtk_settings.gtk_application_prefer_dark_theme = code_settings.get_boolean ("prefer-dark-style");
                 }
-                else if (does_schema_exist ("org.gnome.gedit.preferences.editor")) {
+                else if (does_schema_exist ("org.gnome.gedit.preferences.editor")) { // Found Gedit's settings
                     code_settings = new GLib.Settings ("org.gnome.gedit.preferences.editor");
                 }
-                else {
+                else { // Did not find settings
                     code_settings = new GLib.Settings ("com.github.timecraft.jstest.elementary-code");
+                    gtk_settings.gtk_application_prefer_dark_theme = code_settings.get_boolean ("prefer-dark-style");
                 }
             
-                 // Inherited from io.elementary.code
+                 // Inherited from Code or Gedit
                      // booleans
                 set_auto_indent (code_settings.get_boolean ("auto-indent"));
                 set_insert_spaces_instead_of_tabs (code_settings.get_boolean ("spaces-instead-of-tabs"));
                 set_show_right_margin (code_settings.get_boolean ("show-right-margin"));
-                gtk_settings.gtk_application_prefer_dark_theme = code_settings.get_boolean ("prefer-dark-style");
+                
         
                      // int and uint
                 set_indent_width (code_settings.get_int ("indent-width"));
                 set_right_margin_position (code_settings.get_uint ("right-margin-position"));
-        
+                
                         // strings
             //override_font (Pango.FontDescription.from_string (code_settings.get_string ("font")));
             
@@ -157,7 +159,7 @@ public class JSTest.SourceView : Gtk.SourceView {
                         buffer.end_user_action ();
                     }
                 }
-            });
+            }); //end cut_clipboard.connect
 
     }//endconstruct
 

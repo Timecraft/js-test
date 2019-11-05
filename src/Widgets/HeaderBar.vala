@@ -35,6 +35,7 @@ public class JSTest.HeaderBar : Gtk.HeaderBar {
                 Utils.set_theming_for_screen (this.get_screen (), "@define-color textColorPrimary rgba (0,0,0,1);", Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
             }
         }
+        
         Utils.set_color_primary (this, Constants.APPLICATION_BRAND);
         set_show_close_button (true);
         set_title (_("JS Test"));
