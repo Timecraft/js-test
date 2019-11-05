@@ -33,8 +33,8 @@ public class JSTest.HeaderBar : Gtk.HeaderBar {
             GLib.Settings code_settings = new GLib.Settings ("io.elementary.code.settings");
             if (code_settings.get_boolean ("prefer-dark-style")){
                 Utils.set_theming_for_screen (this.get_screen (), "@define-color textColorPrimary rgba (0,0,0,1);", Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-            }
-        }
+            }//endif (prefers dark style)
+        }//endif (does_schema_exist)
         
         Utils.set_color_primary (this, Constants.APPLICATION_BRAND);
         set_show_close_button (true);
@@ -52,8 +52,9 @@ public class JSTest.HeaderBar : Gtk.HeaderBar {
             WebView web_view = WebView.get_instance ();
             web_view.run_code ();
 //            JSConsole.get_instance ().get_buffer ().text = "";
-        });
+        });//end run_button.clicked.connect
     }
+    
     public static HeaderBar get_instance () {
        if (instance == null) {
            instance = new HeaderBar ();

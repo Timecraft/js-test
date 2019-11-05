@@ -26,10 +26,10 @@ namespace JSTest {
         if (schema == null) {
             warning ("Could not find GSettings ID: %s", id);
             return false;
-        }
+        }//endif (schema == null)
         else {
             message ("Found GSettings ID: %s", id);
             return true;
-        }
+        }//endelse
     }
 }

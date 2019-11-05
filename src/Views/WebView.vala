@@ -47,7 +47,7 @@ public class JSTest.WebView : WebKit.WebView {
         set_settings (web_settings);
         
         
-    }
+    }//endconstruct
 
 
     public static WebView get_instance () {
@@ -57,6 +57,8 @@ public class JSTest.WebView : WebKit.WebView {
         inspector = instance.get_inspector ();
         return instance;
     }
+    
+    
     public void run_code () {
         message ("Running script...");
         inspector.show ();

@@ -58,7 +58,7 @@ public class JSTest.MainWindow : Gtk.Window {
         add_shortcuts ();
         schema_exists = does_schema_exist (Constants.APPLICATION_NAME);
 
-    }
+    }//endconstruct
 
     private void add_shortcuts () {
         key_press_event.connect ((key) => {
@@ -70,21 +70,21 @@ public class JSTest.MainWindow : Gtk.Window {
                         message ("Quitting.");
                         this.destroy ();
                     }
-                    break;
+                    break; //endcase "q"
                 case (Gdk.Key.r):
                     if ((key.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
                         WebView web_view = WebView.get_instance ();
                         web_view.run_code ();
                     }
-                    break;
+                    break; //endcase "r"
                 case (Gdk.Key.i):
                     if ((key.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
                         CopyButton.get_instance ().click ();
-                    } 
+                    } //endcase "i"
                     break;
             }
         return false;
-    });
+        }); //end key_press_event.connect
     }
     
     
@@ -95,14 +95,14 @@ public class JSTest.MainWindow : Gtk.Window {
          
             if (configure_id != 0) {
                 GLib.Source.remove (configure_id);
-            }
+            }//endif (configure_id != 0)
 
             configure_id = Timeout.add (100, () => {
                 configure_id = 0;
 
                 if (is_maximized) {
                     app_settings.set_boolean ("window-maximized", true);
-                } 
+                } //endif (is_maximized)
                 else {
                     app_settings.set_boolean ("window-maximized", false);
         
@@ -113,13 +113,13 @@ public class JSTest.MainWindow : Gtk.Window {
                     int root_x, root_y;
                     get_position (out root_x, out root_y);
                     app_settings.set ("window-position", "(ii)", root_x, root_y);
-                }   
+                }//endelse
         
                 return false;
-                });
+            });//end configure_id = Timeout.add (100, etc.)
 
             return base.configure_event (event);
-        }
+        }//endif (schema_exists)
         else {
             return false;
         }

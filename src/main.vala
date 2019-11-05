@@ -40,7 +40,7 @@ public class JSTest.Application : Gtk.Application {
         message ("Using WebKit " + version);
 
 
-    }
+    }//endconstruct
 
     protected override void activate () {
         JSTest.MainWindow main_window = new JSTest.MainWindow (this);
@@ -49,23 +49,23 @@ public class JSTest.Application : Gtk.Application {
             File destroyer =  File.new_for_path ("jstest.js");
             destroyer.delete_async.begin (Priority.DEFAULT, null);
             message ("\"jstest.js\" has been deleted");
-        });
+        }); //end shutdown.connect
 
 
         if (does_schema_exist (Constants.APPLICATION_NAME)) {
             app_settings = new Settings (Constants.APPLICATION_NAME);
             go_to_last_saved_position (main_window);
             go_to_last_saved_size (main_window);
-        }
+        }//endif (does_schema_exist)
         main_window.show_all ();
-    }
+    }//end activate
 
         private void go_to_last_saved_position (MainWindow main_window) {
             int window_x, window_y;
             app_settings.get ("window-position", "(ii)", out window_x, out window_y);
             if (window_x != -1 || window_y != -1) {
                 main_window.move (window_x, window_y);
-            }
+            }//endif (window_x != -1,etc)
         }
 
         private void go_to_last_saved_size (MainWindow main_window) {
@@ -76,12 +76,12 @@ public class JSTest.Application : Gtk.Application {
 
             if (app_settings.get_boolean ("window-maximized")) {
                 main_window.maximize ();
-            }
+            }//endif (app_settings.get_boolean)
         }
 
 
     public static int main (string[] args) {
         var app = new Application ();
         return app.run (args);
-    }
+    }//endmain
 }

@@ -41,12 +41,14 @@ public class JSTest.CopyButton : Gtk.Button {
         
         clicked.connect ( () => {
             copy ();
-        });
-    }
+        });//end clicked.connect
+    }//endconstruct
     
+    // public interface to copy ()
     public void click () {
         copy ();
     }
+    
     private static void copy () {
         instance.clipboard.set_text (instance.source_view.buffer.text, -1);
         instance.copy_success.send_notification ();

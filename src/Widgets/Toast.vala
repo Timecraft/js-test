@@ -30,7 +30,7 @@ public class JSTest.Toast : Granite.Widgets.Toast {
     }
     construct {
         show_all ();
-    }
+    }//endconstruct
 
     
     

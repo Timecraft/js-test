@@ -25,7 +25,8 @@ public class JSTest.Overlay : Gtk.Overlay {
     public Overlay () {
     }
     construct {
-    }
+    }//endconstruct
+    //Wow, so much in the construct, who knew where it ended? *sarcastic*
     
     public static Overlay get_instance () {
         if (instance == null) {
