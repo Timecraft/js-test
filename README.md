@@ -33,6 +33,13 @@
 ##### A one liner
 `sudo apt install valac libgtk-3-dev libgranite-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev elementary-sdk meson`
 
+#### Recommended installs
+It is recommended that you have one of two editors installed on your system
+- [elementary Code](https://github.com/elementary/code)
+- [Gnome Gedit](https://github.com/GNOME/gedit)
+
+The reason these are recommended is because JS Test tries to pull settings from one of these two editors.
+
 #### Installation
 
 Use `meson` to build.
