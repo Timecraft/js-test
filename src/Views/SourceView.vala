@@ -24,6 +24,7 @@ public class JSTest.SourceView : Gtk.SourceView {
 
     // Deals with the syntax highlighting
     Gtk.SourceLanguageManager language_manager;
+    private GLib.Settings code_settings;
 
     public Gtk.SourceLanguage? language {
             set {
@@ -61,63 +62,80 @@ public class JSTest.SourceView : Gtk.SourceView {
         );
     }
     construct {
+    
         // Settings managers
-        if (does_schema_exist ("io.elementary.code.settings")) {
-            Gtk.Settings gtk_settings = Gtk.Settings.get_default ();
-            GLib.Settings code_settings = new GLib.Settings ("io.elementary.code.settings");
-    
-             // Inherited from io.elementary.code
-                 // booleans
-            set_auto_indent (code_settings.get_boolean ("auto-indent"));
-            set_insert_spaces_instead_of_tabs (code_settings.get_boolean ("spaces-instead-of-tabs"));
+        Gtk.Settings gtk_settings = Gtk.Settings.get_default ();
+        
+        if (does_schema_exist ("io.elementary.code.settings") || 
+            does_schema_exist ("org.gnome.gedit.preferences.editor") || 
+            does_schema_exist ("com.github.timecraft.jstest.elementary-code")) {
+            
+                if (does_schema_exist ("io.elementary.code.settings")) {
+                    code_settings = new GLib.Settings ("io.elementary.code.settings");
+                }
+                else if (does_schema_exist ("org.gnome.gedit.preferences.editor")) {
+                    code_settings = new GLib.Settings ("org.gnome.gedit.preferences.editor");
+                }
+                else {
+                    code_settings = new GLib.Settings ("com.github.timecraft.jstest.elementary-code");
+                }
+            
+                 // Inherited from io.elementary.code
+                     // booleans
+                set_auto_indent (code_settings.get_boolean ("auto-indent"));
+                set_insert_spaces_instead_of_tabs (code_settings.get_boolean ("spaces-instead-of-tabs"));
                 set_show_right_margin (code_settings.get_boolean ("show-right-margin"));
-            gtk_settings.gtk_application_prefer_dark_theme = code_settings.get_boolean ("prefer-dark-style");
+                gtk_settings.gtk_application_prefer_dark_theme = code_settings.get_boolean ("prefer-dark-style");
+        
+                     // int and uint
+                set_indent_width (code_settings.get_int ("indent-width"));
+                set_right_margin_position (code_settings.get_uint ("right-margin-position"));
+        
+                        // strings
+            //override_font (Pango.FontDescription.from_string (code_settings.get_string ("font")));
+            
+        
+                string[] font = code_settings.get_string ("font").split (" ", -1);
+        
+                string font_size = font [font.length - 1] + "pt";
+     //           font.remove_index (font.length);
+                string font_name = "";
+                foreach (string current in font) {
+                    if (current != font [font.length - 1]) {
+                        font_name += current;
+                            font_name += " ";
     
-                 // int and uint
-            set_indent_width (code_settings.get_int ("indent-width"));
-            set_right_margin_position (code_settings.get_uint ("right-margin-position"));
-    
-                    // strings
-        //override_font (Pango.FontDescription.from_string (code_settings.get_string ("font")));
+                    }
+        
+                } //endforeach
+        
+                    Granite.Widgets.Utils.set_theming_for_screen (this.get_screen (),
+                                                                    ".sourceview { font-family:\"" +
+                                                                     font_name +
+                                                                    "\"; " +
+                                                                "font-size: " +
+                                                                    font_size +
+                                                                    ";}",
+                                                                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        
+            
+                        // Create language manager
+                language_manager = Gtk.SourceLanguageManager.get_default ();
+        
+        
+                Gtk.SourceBuffer source_buffer = new Gtk.SourceBuffer (null);
+                set_buffer (source_buffer);
+                style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
+                    // Highlight JavaScript
+                source_buffer.set_language (language_manager.guess_language ("jstest.js", null));
+                source_buffer.highlight_syntax = true;
+                    // Background style
+                
+                source_buffer.set_style_scheme (style_scheme_manager.get_scheme (code_settings.get_string ("style-scheme")));
+        }//endif (does_schema_exist || does_schema_exist || does_schema_exist)
+        
         
     
-            string[] font = code_settings.get_string ("font").split (" ", -1);
-    
-            string font_size = font [font.length - 1] + "pt";
- //           font.remove_index (font.length);
-            string font_name = "";
-            foreach (string current in font) {
-                if (current != font [font.length - 1]) {
-                    font_name += current;
-                        font_name += " ";
-
-                }
-    
-            }
-    
-                Granite.Widgets.Utils.set_theming_for_screen (this.get_screen (),
-                                                                ".sourceview { font-family:\"" +
-                                                                 font_name +
-                                                                "\"; " +
-                                                            "font-size: " +
-                                                                font_size +
-                                                                ";}",
-                                                                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-    
-    
-                    // Create language manager
-            language_manager = Gtk.SourceLanguageManager.get_default ();
-    
-    
-            Gtk.SourceBuffer source_buffer = new Gtk.SourceBuffer (null);
-            set_buffer (source_buffer);
-            style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
-                // Highlight JavaScript
-            source_buffer.set_language (language_manager.guess_language ("jstest.js", null));
-            source_buffer.highlight_syntax = true;
-                // Background style
-            source_buffer.set_style_scheme (style_scheme_manager.get_scheme (code_settings.get_string ("style-scheme")));
-    }
 
 
         cut_clipboard.connect (() => {
@@ -141,7 +159,7 @@ public class JSTest.SourceView : Gtk.SourceView {
                 }
             });
 
-    }
+    }//endconstruct
 
 
     public static SourceView get_instance () {
