@@ -56,7 +56,7 @@ public class JSTest.MainWindow : Gtk.Window {
         add (overlay);
         set_titlebar (header_bar);
         add_shortcuts ();
-        schema_exists = does_schema_exist (Constants.APPLICATION_NAME.replace (".", "/"), Constants.APPLICATION_NAME);
+        schema_exists = does_schema_exist (Constants.APPLICATION_NAME);
 
     }
 

@@ -62,7 +62,7 @@ public class JSTest.SourceView : Gtk.SourceView {
     }
     construct {
         // Settings managers
-        if (does_schema_exist ("io/elementary/code/settings", "io.elementary.code.settings")) {
+        if (does_schema_exist ("io.elementary.code.settings")) {
             Gtk.Settings gtk_settings = Gtk.Settings.get_default ();
             GLib.Settings code_settings = new GLib.Settings ("io.elementary.code.settings");
     

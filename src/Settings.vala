@@ -20,22 +20,16 @@
 */
 
 namespace JSTest {
-    public bool does_schema_exist (string path, string id) {
-        try {
-            SettingsSchemaSource source = new SettingsSchemaSource.from_directory (path, null, false);
-            SettingsSchema schema = source.lookup (id,false);
-            if (schema == null) {
-                warning ("Could not find GSettings ID: %s", id);
-                return false;
-            }
-            else {
-                message ("Found GSettings ID: %s", id);
-                return true;
-            }
+    public bool does_schema_exist (string id) {
+        SettingsSchemaSource source = SettingsSchemaSource.get_default ();
+        SettingsSchema schema = source.lookup (id,false);
+        if (schema == null) {
+            warning ("Could not find GSettings ID: %s", id);
+            return false;
         }
-        catch (Error e) {
-            warning ("Could not find GSettings ID: %s", e.message);
+        else {
+            message ("Found GSettings ID: %s", id);
+            return true;
         }
-        return false;
     }
 }
