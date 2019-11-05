@@ -10,6 +10,7 @@ executable (
     join_paths ('main.vala'),
     join_paths ('Constants.vala'),
     join_paths ('FileManager.vala'),
+    join_paths ('Settings.vala'),
 
 
     # Views
