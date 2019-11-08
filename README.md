@@ -5,11 +5,10 @@
 
 ### Screenshots
 
-
-![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.jstest.mainwindow.png)
-<br/>
-<br/>
-![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.jstest.sample.png)
+| **Light** | **Dark** |
+| -------- | --------- |
+| ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.jstest.light.mainwindow.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.jstest.dark.mainwindow.png) 
+| ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.jstest.light.sample.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.jstest.dark.sample.png) 
 
 <br/>
 <br/>
