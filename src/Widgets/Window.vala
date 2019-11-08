@@ -109,19 +109,21 @@ public class JSTest.MainWindow : Gtk.Window {
                     Gdk.Rectangle rect;
                     get_allocation (out rect);
                     app_settings.set ("window-size", "(ii)", rect.width, rect.height);
+                    
         
                     int root_x, root_y;
                     get_position (out root_x, out root_y);
                     app_settings.set ("window-position", "(ii)", root_x, root_y);
                 }//endelse
         
-                return false;
+                return base.configure_event (event);
             });//end configure_id = Timeout.add (100, etc.)
 
             return base.configure_event (event);
         }//endif (schema_exists)
         else {
-            return false;
+            return base.configure_event (event);
         }
     }
+    
 }
