@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=JS Test
+GenericName=JavaScript Tester
+Comment=Test some JavaScript
+Categories=Utility;Development;Education;
+Exec=com.github.timecraft.jstest
+Icon=com.github.timecraft.jstest
+Terminal=false
+
+X-GNOME-Gettext-domain=jstest
+Keywords=JavaScript;GUI;Development;
