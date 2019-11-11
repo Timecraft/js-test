@@ -32,7 +32,7 @@
             <description>Whether Code should replace tabs with spaces</description>
         </key>
         <key name="show-right-margin" type="b">
-            <default>false</description>
+            <default>false</default>
             <summary>Show the right margin</summary>
             <description>Specifies if the Source view should show the right margin or not.</description>
         </key>
