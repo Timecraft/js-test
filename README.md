@@ -1,6 +1,7 @@
 # JSTest
 ## Test some JavaScript
 
+#### Houston CI seems to be broken currently
 [![BuildStatus](https://travis-ci.org/Timecraft/js_test.svg?branch=master)](https://travis-ci.org/Timecraft/js_test)
 
 ### Screenshots
