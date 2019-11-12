@@ -1,4 +1,4 @@
-Source: "com.github.timecraft.js-test"
+Source: com.github.timecraft.js-test
 Section: utils
 Priority: optional
 Maintainer: Timecraft <timemaster23x@gmail.com>
