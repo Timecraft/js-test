@@ -52,7 +52,7 @@
     </content_rating>
 
     <releases>
-        <release version="1.0.0">
+        <release version="0.1.0">
             <description>
                 Initial release to AppCenter
             </description>
