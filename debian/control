@@ -1,5 +1,5 @@
 Source: com.github.timecraft.js-test
-Section: x11
+Section: utils
 Priority: optional
 Maintainer: Timecraft <timemaster23x@gmail.com>
 Build-Depends: meson,
