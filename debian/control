@@ -1,4 +1,4 @@
-Source: com.github.timecraft.jstest
+Source: com.github.timecraft.js-test
 Section: x11
 Priority: optional
 Maintainer: Timecraft <timemaster23x@gmail.com>
@@ -13,7 +13,7 @@ Build-Depends: meson,
 		libgranite-dev (>= 5.2)
 Standards-Version: 4.1.1
 
-Package: com.github.timecraft.jstest
+Package: com.github.timecraft.js-test
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
