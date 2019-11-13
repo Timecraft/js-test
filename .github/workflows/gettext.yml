@@ -1,17 +1,14 @@
-name: 'Gettext Auto-update'
-description: 'Push the new gettext template and translations when required'
-inputs:
-  github_token:
-    description: 'Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}'
-    required: true
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
-branding:
-  icon: 'message-circle'
-  color: 'green'
+name: Gettext updates
 on:
-    push:
-        - master
-            branches:
-                - master
+  push:
+    branches: master
+jobs:
+  gettext_template:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: elementary/actions/gettext-template@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        translation_branch: 'i18n'
