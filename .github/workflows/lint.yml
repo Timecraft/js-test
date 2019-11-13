@@ -22,3 +22,6 @@ runs:
 branding:
   icon: 'check-square'
   color: 'purple'
+on:
+    push:
+        - master

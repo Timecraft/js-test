@@ -13,3 +13,6 @@ runs:
 branding:
   icon: 'git-pull-request'
   color: 'green'
+on: 
+    pull_request:
+        - master

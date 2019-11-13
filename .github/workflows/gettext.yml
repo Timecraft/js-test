@@ -10,3 +10,6 @@ runs:
 branding:
   icon: 'message-circle'
   color: 'green'
+on:
+    push:
+        - master
