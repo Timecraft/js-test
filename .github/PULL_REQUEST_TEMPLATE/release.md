@@ -1,7 +1,7 @@
 ---
 name: New Release
 about: Create a release commit
-title: "[Release] API.Feature.BugFix"
+title: '[Release] API.Feature.BugFix'
 labels: ''
 assignees: ''
 
@@ -17,3 +17,4 @@ Where required, I've:
     - [ ] meson.build
 - [ ] Validated appdata changelog data
 - [ ] Updated the release date in appdata
+
