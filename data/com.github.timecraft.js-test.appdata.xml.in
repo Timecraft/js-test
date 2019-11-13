@@ -60,17 +60,17 @@
     </releases>
 
     <screenshots>
-        <screenshot type="default">
-            <image>https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.light.png</image>
+        <screenshot>
+            <image>https://raw.githubusercontent.com/Timecraft/JS_Test/master/data/images/com.github.timecraft.js-test.mainwindow.light.png</image>
         </screenshot>
-        <screenshot type="default">
-            <image>https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.dark.png</image>
+        <screenshot>
+            <image>https://raw.githubusercontent.com/Timecraft/JS_Test/master/data/images/com.github.timecraft.js-test.mainwindow.dark.png</image>
         </screenshot>
-        <screenshot type="default">
-            <image>https://raw.githubusercontent.com/Timecraft/JS_Test/master/data/images/com.github.timecraft.jstest.sample.light.png</image>
+        <screenshot>
+            <image>https://raw.githubusercontent.com/Timecraft/JS_Test/master/data/images/com.github.timecraft.js-test.sample.light.png</image>
         </screenshot>
-        <screenshot type="default">
-            <image>https://raw.githubusercontent.com/Timecraft/JS_Test/master/data/images/com.github.timecraft.jstest.sample.dark.png</image>
+        <screenshot>
+            <image>https://raw.githubusercontent.com/Timecraft/JS_Test/master/data/images/com.github.timecraft.js-test.sample.dark.png</image>
         </screenshot>
     </screenshots>
 
