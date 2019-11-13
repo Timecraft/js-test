@@ -1,3 +1,4 @@
+name: Vala lint
 on:
     push:
         branches: master
