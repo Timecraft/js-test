@@ -1,0 +1,16 @@
+name: Vala lint
+on:
+    push:
+        branches: master
+jobs:
+  lint:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - uses: elementary/actions/vala-lint@master
+      with:
+        dir: src/
+        conf: .vala-lint.conf
+        fail: false

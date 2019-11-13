@@ -1,14 +1,17 @@
 
 # Install application icons.
-icon_sizes = ['16','24','32','64','128','256']
+icon_sizes = ['16','24','32', '48', '64','128']
 foreach i : icon_sizes
   install_data (
-  join_paths ('icons', meson.project_name () + '.' + i + '.svg'),
-  install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i, 'apps')
+    join_paths ('icons', meson.project_name () + '.' + i + '.svg'),
+    install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i, 'apps'),
+    rename: meson.project_name() + '.svg'
   )
+
   install_data (
-  join_paths ('icons', meson.project_name () + '.' + i + '.svg'),
-  install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i + '@2', 'apps')
+    join_paths ('icons', meson.project_name () + '.' + i + '.svg'),
+    install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i + '@2', 'apps'),
+    rename: meson.project_name() + '.svg'
   )
 endforeach
 
@@ -32,4 +35,10 @@ i18n.merge_file(
     po_dir: join_paths(meson.source_root(), 'po'),
     install: true,
     install_dir: join_paths(get_option('datadir'), 'metainfo')
+)
+
+install_data(
+    'gschema.xml',
+    install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas'),
+    rename: meson.project_name() + '.gschema.xml'
 )

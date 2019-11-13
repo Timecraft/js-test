@@ -20,14 +20,36 @@
 */
 
 
-namespace JSTest.Constants {
-    public const string APPLICATION_NAME = "com.github.timecraft.jstest";
-    public const int APPLICATION_WIDTH = 700;
-    public const int APPLICATION_HEIGHT = 700;
-    public const Gdk.RGBA APPLICATION_BRAND = {
-    /* Red */   1.0         /*  255  */,
-    /* Green */ 0.701961    /*  179  */,
-    /* Blue */  0.0         /*   0   */,
-    /* Alpha */ 1.0         /*  IDK  */
-    };
+public class JSTest.Toast : Granite.Widgets.Toast {
+    public static Toast? instance;
+    
+    public Toast (string title) {
+        Object (
+            title: title
+        );
+    }
+    construct {
+        show_all ();
+    }//endconstruct
+
+    
+    
+    // Does not have title; default instance getter
+    public Toast get_instance () {
+        if (instance == null) {
+            instance = new Toast ("");
+        }
+        return instance;
+    }
+    
+    // Has title; default setter
+    public Toast set_instance (string title) {
+        if (instance == null) {
+            instance = new Toast (title);
+        }
+        else {
+            instance.title = title;
+        }
+        return instance;
+    }
 }

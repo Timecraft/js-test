@@ -1,10 +1,15 @@
 # JSTest
 ## Test some JavaScript
 
-![BuildStatus](https://travis-ci.org/Timecraft/js_test.svg?branch=master)
+#### Houston CI seems to be broken currently
+[![BuildStatus](https://travis-ci.org/Timecraft/js_test.svg?branch=master)](https://travis-ci.org/Timecraft/js_test)
 
 ### Screenshots
-#### Coming soon!
+
+| **Light** | **Dark** |
+| -------- | --------- |
+| ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.light.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.dark.png)
+| ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.light.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.dark.png)
 
 <br/>
 <br/>
@@ -28,6 +33,13 @@
 ##### A one liner
 `sudo apt install valac libgtk-3-dev libgranite-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev elementary-sdk meson`
 
+#### Recommended installs
+It is recommended that you have one of two editors installed on your system
+- [elementary Code](https://github.com/elementary/code)
+- [Gnome Gedit](https://github.com/GNOME/gedit)
+
+The reason these are recommended is because JS Test tries to pull settings from one of these two editors.
+
 #### Installation
 
 Use `meson` to build.
@@ -40,14 +52,14 @@ Change into `build` directory and use `ninja` to compile.
 
 `ninja`
 
-Install using `ninja install`, then run with `com.github.timecraft.jstest` or by clicking on it in your launcher.
+Install using `ninja install`, then run with `com.github.timecraft.js-test` or by clicking on it in your launcher.
 
 `sudo ninja install`
 
-`com.github.timecraft.jstest`
+`com.github.timecraft.js-test`
 
 #### Debugging
 
 If something is acting funny, or if you just want to see my musings, then execution in the terminal will give you all of that.
 
-`com.github.timecraft.jstest`
+`com.github.timecraft.js-test`

@@ -25,13 +25,17 @@ using Granite.Widgets;
 public class JSTest.MainWindow : Gtk.Window {
 
     private Gtk.Paned pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-    private JSTest.HeaderBar header_bar = HeaderBar.get_instance ();
+    private HeaderBar header_bar = HeaderBar.get_instance ();
 
 
-    private JSTest.SourceView source_view = SourceView.get_instance ();
-    private JSTest.WebView web_view = WebView.get_instance ();
+    private SourceView source_view = SourceView.get_instance ();
+    private WebView web_view = WebView.get_instance ();
+    private Overlay overlay = Overlay.get_instance ();
     
+    private Settings app_settings;
+    private uint configure_id;
 
+    private bool schema_exists = false;
 
 
     public MainWindow (Gtk.Application application) {
@@ -48,11 +52,13 @@ public class JSTest.MainWindow : Gtk.Window {
 
         pane.add1 (source_view);
         pane.add2 (web_view);
-        add (pane);
+        overlay.add (pane);
+        add (overlay);
         set_titlebar (header_bar);
         add_shortcuts ();
+        schema_exists = does_schema_exist (Constants.APPLICATION_NAME);
 
-    }
+    }//endconstruct
 
     private void add_shortcuts () {
         key_press_event.connect ((key) => {
@@ -64,15 +70,60 @@ public class JSTest.MainWindow : Gtk.Window {
                         message ("Quitting.");
                         this.destroy ();
                     }
-                    break;
+                    break; //endcase "q"
                 case (Gdk.Key.r):
                     if ((key.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
                         WebView web_view = WebView.get_instance ();
                         web_view.run_code ();
                     }
-                break;
+                    break; //endcase "r"
+                case (Gdk.Key.i):
+                    if ((key.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+                        CopyButton.get_instance ().click ();
+                    } //endcase "i"
+                    break;
             }
         return false;
-    });
+        }); //end key_press_event.connect
     }
+    
+    
+    public override bool configure_event (Gdk.EventConfigure event) {
+        
+        if (schema_exists) {
+            app_settings = new Settings (Constants.APPLICATION_NAME);
+         
+            if (configure_id != 0) {
+                GLib.Source.remove (configure_id);
+            }//endif (configure_id != 0)
+
+            configure_id = Timeout.add (100, () => {
+                configure_id = 0;
+
+                if (is_maximized) {
+                    app_settings.set_boolean ("window-maximized", true);
+                } //endif (is_maximized)
+                else {
+                    app_settings.set_boolean ("window-maximized", false);
+        
+                    Gdk.Rectangle rect;
+                    get_allocation (out rect);
+                    app_settings.set ("window-size", "(ii)", rect.width, rect.height);
+                    
+        
+                    int root_x, root_y;
+                    get_position (out root_x, out root_y);
+                    app_settings.set ("window-position", "(ii)", root_x, root_y);
+                }//endelse
+        
+                return base.configure_event (event);
+            });//end configure_id = Timeout.add (100, etc.)
+
+            return base.configure_event (event);
+        }//endif (schema_exists)
+        else {
+            return base.configure_event (event);
+        }
+    }
+    
 }

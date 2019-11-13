@@ -30,12 +30,15 @@ public class JSTest.WebView : WebKit.WebView {
 
 
     private static WebKit.WebInspector inspector;
+    private bool inspector_is_shown = false;
     FileManager file_manager = FileManager.get_instance ();
 
 
 
     public WebView () {
-
+        Object (
+            is_ephemeral: true
+        );
     }
     construct {
         WebKit.Settings web_settings = new WebKit.Settings ();
@@ -45,19 +48,56 @@ public class JSTest.WebView : WebKit.WebView {
         set_settings (web_settings);
         
         
-    }
+        
+        
+    }//endconstruct
 
 
     public static WebView get_instance () {
         if (instance == null) {
             instance = new WebView ();
+            instance.load_html ("",null);
+            
+            inspector = instance.get_inspector ();
+            
+            
+            inspector.closed.connect ( () => {
+                instance.inspector_is_shown = false;
+            });
+            
+            
         }
-        inspector = instance.get_inspector ();
+        
         return instance;
     }
+    
+    
     public void run_code () {
+        
         message ("Running script...");
-        inspector.show ();
-        load_html ("<script>" + file_manager.read_file () + "</script>", null);
+        
+        load_html ("""
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <script>
+                debugger;
+        """ + 
+                    file_manager.read_file () + 
+        """
+                </script>
+            </head>
+        </html>
+        """, 
+        "JS Test");
+        
+        
+        
+        if (!inspector_is_shown) {
+            inspector.show ();
+            inspector_is_shown = true;
+        }
+        
+        
     }
 }

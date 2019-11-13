@@ -19,15 +19,19 @@
 * Authored by: Timecraft <timemaster23x@gmail.com>
 */
 
-
-namespace JSTest.Constants {
-    public const string APPLICATION_NAME = "com.github.timecraft.jstest";
-    public const int APPLICATION_WIDTH = 700;
-    public const int APPLICATION_HEIGHT = 700;
-    public const Gdk.RGBA APPLICATION_BRAND = {
-    /* Red */   1.0         /*  255  */,
-    /* Green */ 0.701961    /*  179  */,
-    /* Blue */  0.0         /*   0   */,
-    /* Alpha */ 1.0         /*  IDK  */
-    };
+public class JSTest.Overlay : Gtk.Overlay {
+    public static Overlay? instance;
+    
+    public Overlay () {
+    }
+    construct {
+    }//endconstruct
+    //Wow, so much in the construct, who knew where it ended? *sarcastic*
+    
+    public static Overlay get_instance () {
+        if (instance == null) {
+            instance = new Overlay ();
+        }
+        return instance;
+    }
 }

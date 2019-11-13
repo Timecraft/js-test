@@ -10,6 +10,7 @@ executable (
     join_paths ('main.vala'),
     join_paths ('Constants.vala'),
     join_paths ('FileManager.vala'),
+    join_paths ('Settings.vala'),
 
 
     # Views
@@ -22,6 +23,8 @@ executable (
     join_paths ('Widgets', 'Window.vala'),
     join_paths ('Widgets', 'HeaderBar.vala'),
     join_paths ('Widgets', 'CopyButton.vala'),
+    join_paths ('Widgets', 'Overlay.vala'),
+    join_paths ('Widgets', 'Toast.vala'),
 
     # Dialogs
     join_paths ('Dialogs', 'Alert.vala'),

@@ -19,7 +19,7 @@
 * Authored by: Timecraft <timemaster23x@gmail.com>
 */
 
-
+// Not sure this is ever used. We can probably get rid of it.
 using Granite;
 
 public class JSTest.Alert : Object {
@@ -31,6 +31,6 @@ public class JSTest.Alert : Object {
 
         if (message_dialog.run () == Gtk.ResponseType.CLOSE) {
             message_dialog.destroy ();
-        }
+        }//endif (message_diaglog.run, etc.)
     }
 }
