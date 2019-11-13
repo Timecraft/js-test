@@ -5,7 +5,7 @@ GenericName=JavaScript Tester
 Comment=Test some JavaScript
 Categories=Utility;Development;Education;
 Exec=com.github.timecraft.js-test
-Icon=com.github.timecraft.jstest
+Icon=com.github.timecraft.js-test
 Terminal=false
 
 X-GNOME-Gettext-domain=jstest
