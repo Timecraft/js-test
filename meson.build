@@ -1,5 +1,8 @@
 # Define project name
-project ('com.github.timecraft.js-test', 'vala', 'c')
+project ('com.github.timecraft.js-test', 
+    'vala', 'c',
+    version: '0.1.0'
+)
 
 
 
