@@ -52,7 +52,7 @@
     </content_rating>
 
     <releases>
-        <release version="0.1.0">
+        <release version="0.1.0" date="2019-11-13" urgency="low">
             <description>
                 Initial release to AppCenter
             </description>
