@@ -24,4 +24,5 @@ branding:
   color: 'purple'
 on:
     push:
-        - master
+        branches:
+            - master

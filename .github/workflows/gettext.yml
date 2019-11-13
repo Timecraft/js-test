@@ -13,3 +13,5 @@ branding:
 on:
     push:
         - master
+            branches:
+                - master
