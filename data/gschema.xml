@@ -16,11 +16,9 @@
             <summary>Window size</summary>
             <description>Most recent window size (width, height)</description>
         </key>
-    </schema>
 
 
     <!-- Schema that origninates from io.elementary.code -->
-    <schema path="/com/github/timecraft/jstest/" id="com.github.timecraft.jstest.elementary-code">
         <key name="auto-indent" type="b">
             <default>true</default>
             <summary>Use auto indent</summary>
@@ -60,7 +58,7 @@
         </key>
 
         <key name="style-scheme" type="s">
-            <default>'solarized-light'</default>
+            <default>'solarized-dark'</default>
             <summary>Preferred Style Scheme</summary>
             <description>Set the preferred style scheme.</description>
         </key>

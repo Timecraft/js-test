@@ -24,14 +24,13 @@ using Granite.Widgets;
 
 public class JSTest.HeaderBar : Gtk.HeaderBar {
     static HeaderBar? instance;
-
+    private SettingsManager? settings;
     HeaderBar () {
 
     }
     construct {
-        if (does_schema_exist ("io.elementary.code.settings")) {
-            GLib.Settings code_settings = new GLib.Settings ("io.elementary.code.settings");
-            if (code_settings.get_boolean ("prefer-dark-style")){
+        if (settings != null) {
+            if (settings.get_boolean ("prefer-dark-style")){
                 Utils.set_theming_for_screen (this.get_screen (), "@define-color textColorPrimary rgba (0,0,0,1);", Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
             }//endif (prefers dark style)
         }//endif (does_schema_exist)
@@ -39,7 +38,12 @@ public class JSTest.HeaderBar : Gtk.HeaderBar {
         Utils.set_color_primary (this, Constants.APPLICATION_BRAND);
         set_show_close_button (true);
         set_title (_("JS Test"));
-
+        
+        // Settings menu
+        SettingsButton settings_button = new SettingsButton ();
+        pack_end (settings_button);
+        
+        // Button that runs code
         Gtk.Button run_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic",Gtk.IconSize.LARGE_TOOLBAR);
         run_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>R"}, _("Run Script"));
         pack_end (run_button);
@@ -47,6 +51,7 @@ public class JSTest.HeaderBar : Gtk.HeaderBar {
         CopyButton copy_button = CopyButton.get_instance ();
         pack_end (copy_button);
         
+        // Run code
         run_button.clicked.connect (() => {
             
             WebView web_view = WebView.get_instance ();

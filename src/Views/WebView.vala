@@ -33,6 +33,7 @@ public class JSTest.WebView : WebKit.WebView {
     private bool inspector_is_shown = false;
     FileManager file_manager = FileManager.get_instance ();
 
+    private SettingsManager? settings_manager;
 
 
     public WebView () {
@@ -46,6 +47,10 @@ public class JSTest.WebView : WebKit.WebView {
         web_settings.set_enable_developer_extras (true);
         set_size_request (Constants.APPLICATION_HEIGHT, Constants.APPLICATION_WIDTH / 2);
         set_settings (web_settings);
+        
+        settings_manager = SettingsManager.instance;
+        // This is here in case complaints come in about WebKit's... bug? dealing with the dark mode having bad contrast
+        Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = false;
         
         
         

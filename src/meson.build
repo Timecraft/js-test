@@ -25,9 +25,15 @@ executable (
     join_paths ('Widgets', 'CopyButton.vala'),
     join_paths ('Widgets', 'Overlay.vala'),
     join_paths ('Widgets', 'Toast.vala'),
+    join_paths ('Widgets', 'SettingsButton.vala'),
+    join_paths ('Widgets', 'SettingsMenu.vala'),
 
     # Dialogs
     join_paths ('Dialogs', 'Alert.vala'),
+    
+    # Resources
+    as_resources,
+    
     # Dependencies
     dependencies: [
         dependency ('granite'),
@@ -36,6 +42,8 @@ executable (
         dependency ('glib-2.0'),
         dependency ('webkit2gtk-4.0')
     ],
+    
+    
 
     install:true
 )

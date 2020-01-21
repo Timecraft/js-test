@@ -24,7 +24,7 @@ public class JSTest.SourceView : Gtk.SourceView {
 
     // Deals with the syntax highlighting
     Gtk.SourceLanguageManager language_manager;
-    private GLib.Settings code_settings;
+    private SettingsManager? settings = SettingsManager.instance;
 
     public Gtk.SourceLanguage? language {
             set {
@@ -37,8 +37,9 @@ public class JSTest.SourceView : Gtk.SourceView {
 
     // Deals with styling, primarily
     public Gtk.SourceStyleSchemeManager style_scheme_manager;
+    public Gtk.SourceBuffer source_buffer;
 
-    static SourceView? instance;
+    public static SourceView? instance;
 
     public SourceView (){
         Object (
@@ -62,82 +63,40 @@ public class JSTest.SourceView : Gtk.SourceView {
         );
     }
     construct {
-    
-        // Settings managers
-        Gtk.Settings gtk_settings = Gtk.Settings.get_default ();
-        
-        if (does_schema_exist ("io.elementary.code.settings") || 
-            does_schema_exist ("org.gnome.gedit.preferences.editor") || 
-            does_schema_exist ("com.github.timecraft.jstest.elementary-code")) {
-            
-                if (does_schema_exist ("io.elementary.code.settings")) { // Found Code's settings
-                    code_settings = new GLib.Settings ("io.elementary.code.settings");
-                    gtk_settings.gtk_application_prefer_dark_theme = code_settings.get_boolean ("prefer-dark-style");
-                }
-                else if (does_schema_exist ("org.gnome.gedit.preferences.editor")) { // Found Gedit's settings
-                    code_settings = new GLib.Settings ("org.gnome.gedit.preferences.editor");
-                }
-                else { // Did not find settings
-                    code_settings = new GLib.Settings ("com.github.timecraft.jstest.elementary-code");
-                    gtk_settings.gtk_application_prefer_dark_theme = code_settings.get_boolean ("prefer-dark-style");
-                }
-            
-                 // Inherited from Code or Gedit
-                     // booleans
-                set_auto_indent (code_settings.get_boolean ("auto-indent"));
-                set_insert_spaces_instead_of_tabs (code_settings.get_boolean ("spaces-instead-of-tabs"));
-                set_show_right_margin (code_settings.get_boolean ("show-right-margin"));
-                
-        
-                     // int and uint
-                set_indent_width (code_settings.get_int ("indent-width"));
-                set_right_margin_position (code_settings.get_uint ("right-margin-position"));
-                
-                        // strings
-            //override_font (Pango.FontDescription.from_string (code_settings.get_string ("font")));
-            
-        
-                string[] font = code_settings.get_string ("font").split (" ", -1);
-        
-                string font_size = font [font.length - 1] + "pt";
-     //           font.remove_index (font.length);
-                string font_name = "";
-                foreach (string current in font) {
-                    if (current != font [font.length - 1]) {
-                        font_name += current;
-                            font_name += " ";
-    
-                    }
-        
-                } //endforeach
-        
-                    Granite.Widgets.Utils.set_theming_for_screen (this.get_screen (),
-                                                                    ".sourceview { font-family:\"" +
-                                                                     font_name +
-                                                                    "\"; " +
-                                                                "font-size: " +
-                                                                    font_size +
-                                                                    ";}",
-                                                                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        
-            
-                        // Create language manager
-                language_manager = Gtk.SourceLanguageManager.get_default ();
-        
-        
-                Gtk.SourceBuffer source_buffer = new Gtk.SourceBuffer (null);
-                set_buffer (source_buffer);
-                style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
-                    // Highlight JavaScript
-                source_buffer.set_language (language_manager.guess_language ("jstest.js", null));
-                source_buffer.highlight_syntax = true;
-                    // Background style
-                
-                source_buffer.set_style_scheme (style_scheme_manager.get_scheme (code_settings.get_string ("style-scheme")));
-        }//endif (does_schema_exist || does_schema_exist || does_schema_exist)
-        
-        
-    
+                if (settings != null) {
+                    set_auto_indent (settings.auto_indent);
+                    set_insert_spaces_instead_of_tabs (settings.spaces_instead_of_tabs);
+                    set_show_right_margin (settings.show_right_margin);
+
+
+                         // int and uint
+                    set_indent_width (settings.indent_width);
+                    set_right_margin_position (settings.right_margin_position);
+
+                            // strings
+                //override_font (Pango.FontDescription.from_string (code_settings.get_string ("font")));
+
+
+                    set_font ();
+
+
+                            // Create language manager
+                    language_manager = Gtk.SourceLanguageManager.get_default ();
+
+
+                    source_buffer = new Gtk.SourceBuffer (null);
+                    set_buffer (source_buffer);
+                    style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
+                        // Highlight JavaScript
+                    source_buffer.set_language (language_manager.guess_language ("jstest.js", null));
+                    source_buffer.highlight_syntax = true;
+                        // Background style
+
+                    source_buffer.set_style_scheme (style_scheme_manager.get_scheme (settings.style_scheme));
+            }
+
+
+
 
 
         cut_clipboard.connect (() => {
@@ -162,6 +121,86 @@ public class JSTest.SourceView : Gtk.SourceView {
             }); //end cut_clipboard.connect
 
     }//endconstruct
+    
+    
+    // Set the font
+    private void set_font () {
+        string font_style;
+        int font_weight;
+        
+        string[] font = settings.font.split (" ", -1);
+
+        string font_size = font [font.length - 1] + "pt";
+        string font_name = "";
+        foreach (string current in font) {
+            if (current != font [font.length - 1]) {
+                font_name += current;
+                font_name += " ";
+
+            }
+            
+
+        } //endforeach
+        
+        if (font_name.contains ("Italic")) {
+            font_style = "italic";
+            font_name.replace ("Italic", "");
+            message ("Italic text");
+        }
+        else {
+            font_style = "normal";
+            font_name.replace ("Regular", "");
+        }
+        
+        
+        
+        if (font_name.contains ("Bold")) {
+            font_weight = 900;
+            font_name.replace ("Bold", "");
+        }
+        else if (font_name.contains ("Medium")) {
+            font_weight = 700;
+            font_name.replace ("Medium", "");
+        }
+        else if (font_name.contains ("Thin")) {
+            font_weight = 300;
+            font_name.replace ("Thin", "");
+        }
+        else {
+            font_weight = 500;
+        }
+
+            Granite.Widgets.Utils.set_theming_for_screen (this.get_screen (),
+                                                            ".sourceview { font-family:\"" +
+                                                             font_name +
+                                                            "\"; " +
+                                                           "font-size: " +
+                                                            font_size +
+                                                            ";" +
+                                                            "font-weight: " + 
+                                                            font_weight.to_string () + 
+                                                            ";" + 
+                                                            "font-style: " + 
+                                                            font_style +
+                                                            ";}",
+                                                            
+                                                            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        message (font_name + " " + font_size);
+    }
+    
+    
+
+    public void update_style () {
+        if (this != null) {
+            // Color styling
+            source_buffer.set_style_scheme (style_scheme_manager.get_scheme (settings.style_scheme));
+            
+            set_font ();
+        }
+        else {
+            error ("SourceView is null!");
+        }
+    }
 
 
     public static SourceView get_instance () {

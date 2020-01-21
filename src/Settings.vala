@@ -19,12 +19,85 @@
 * Authored by: Timecraft <timemaster23x@gmail.com>
 */
 
-namespace JSTest {
-    public bool does_schema_exist (string id) {
+
+public class JSTest.SettingsManager : Settings {
+        
+        // Settings that are "completely unique" to JS Test
+        public bool window_maximized;
+        // No clue what to put "(ii)" as
+        // public donthaveaclue window-position;
+        // public donthaveaclue window-size;
+        public bool prefer_dark_theme;
+        
+        // Settings that originate from elementary Code
+        public bool auto_indent;
+        public bool spaces_instead_of_tabs;
+        public bool show_right_margin;
+        
+        
+        public int indent_width;
+        public int right_margin_position;
+        
+        public string font;
+        public string style_scheme;
+        
+        public Gtk.Settings gtk_settings = Gtk.Settings.get_default ();
+        
+        public static SettingsManager? instance = null;
+
+
+        public SettingsManager (string id) {
+                    if (does_schema_exist (id)) {
+                        Object (
+                            schema_id: id
+                        );
+                        prefer_dark_theme = this.get_boolean ("prefer-dark-style");
+                        gtk_settings.gtk_application_prefer_dark_theme = prefer_dark_theme;
+                        
+                        // Get booleans from schema
+                        window_maximized = this.get_boolean ("window-maximized");
+                        auto_indent = this.get_boolean ("auto-indent");
+                        spaces_instead_of_tabs = this.get_boolean ("spaces-instead-of-tabs");
+                        show_right_margin = this.get_boolean ("show-right-margin");
+                        
+                        // Get integers from schema
+                        indent_width = this.get_int ("indent-width");
+                        right_margin_position = this.get_int ("right-margin-position");
+                        
+                        // Get strings from schema
+                        font = this.get_string ("font");
+                        style_scheme = this.get_string ("style-scheme");
+                    }//endif (does_schema_exist)
+                    instance = this;
+                    
+        }
+
+        
+        public void save_variables () {
+            if (this != null) {
+                // Save booleans
+                this.set_boolean ("window-maximized", window_maximized);
+                this.set_boolean ("auto-indent", auto_indent);
+                this.set_boolean ("spaces-instead-of-tabs", spaces_instead_of_tabs);
+                this.set_boolean ("show-right-margin", show_right_margin);
+                this.set_boolean ("prefer-dark-style", gtk_settings.gtk_application_prefer_dark_theme);
+                
+                // Save integers
+                this.set_int ("indent-width", indent_width);
+                this.set_int ("right-margin-position", right_margin_position);
+                
+                // Save strings
+                this.set_string ("font", font);
+                this.set_string ("style-scheme", style_scheme);
+            }
+        }
+
+        
+    public static bool does_schema_exist (string id) {
         SettingsSchemaSource source = SettingsSchemaSource.get_default ();
         SettingsSchema schema = source.lookup (id,false);
         if (schema == null) {
-            warning ("Could not find GSettings ID: %s", id);
+            warning ("Could not find GSettings ID: %s. Continuing with no schema", id);
             return false;
         }//endif (schema == null)
         else {
@@ -32,4 +105,4 @@ namespace JSTest {
             return true;
         }//endelse
     }
-}
+}//endclass
