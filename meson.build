@@ -17,10 +17,9 @@ add_global_arguments ('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name ()), 
 # C Compiler
 cc = meson.get_compiler ('c')
 
-asresources = gnome.compile_resources(
+as_resources = gnome.compile_resources(
     'as-resources', 'data/gresource.xml',
-    source_dir: 'data',
-    c_name: 'as'
+    source_dir: 'data'
 )
 
 # Executable lives here

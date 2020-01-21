@@ -29,6 +29,9 @@ public class JSTest.CopyButton : Gtk.Button {
     private Toast copy_success = new Toast (_("Script copied to clipboard"));
     private Overlay overlay = Overlay.get_instance ();
     
+    
+    
+    
     public CopyButton () {
         Object (
             image: new Gtk.Image.from_icon_name ("edit-copy-symbolic", Gtk.IconSize.LARGE_TOOLBAR)
@@ -61,3 +64,4 @@ public class JSTest.CopyButton : Gtk.Button {
         return instance;
     }
 }
+

@@ -27,6 +27,7 @@ public class JSTest.SettingsManager : Settings {
         // No clue what to put "(ii)" as
         // public donthaveaclue window-position;
         // public donthaveaclue window-size;
+        public bool prefer_dark_theme;
         
         // Settings that originate from elementary Code
         public bool auto_indent;
@@ -40,7 +41,7 @@ public class JSTest.SettingsManager : Settings {
         public string font;
         public string style_scheme;
         
-        private Gtk.Settings gtk_settings = Gtk.Settings.get_default ();
+        public Gtk.Settings gtk_settings = Gtk.Settings.get_default ();
         
         public static SettingsManager? instance = null;
 
@@ -50,8 +51,8 @@ public class JSTest.SettingsManager : Settings {
                         Object (
                             schema_id: id
                         );
-                        
-                        gtk_settings.gtk_application_prefer_dark_theme = this.get_boolean ("prefer-dark-style");
+                        prefer_dark_theme = this.get_boolean ("prefer-dark-style");
+                        gtk_settings.gtk_application_prefer_dark_theme = prefer_dark_theme;
                         
                         // Get booleans from schema
                         window_maximized = this.get_boolean ("window-maximized");
@@ -79,6 +80,7 @@ public class JSTest.SettingsManager : Settings {
                 this.set_boolean ("auto-indent", auto_indent);
                 this.set_boolean ("spaces-instead-of-tabs", spaces_instead_of_tabs);
                 this.set_boolean ("show-right-margin", show_right_margin);
+                this.set_boolean ("prefer-dark-style", gtk_settings.gtk_application_prefer_dark_theme);
                 
                 // Save integers
                 this.set_int ("indent-width", indent_width);

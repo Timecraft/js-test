@@ -38,7 +38,12 @@ public class JSTest.HeaderBar : Gtk.HeaderBar {
         Utils.set_color_primary (this, Constants.APPLICATION_BRAND);
         set_show_close_button (true);
         set_title (_("JS Test"));
-
+        
+        // Settings menu
+        SettingsButton settings_button = new SettingsButton ();
+        pack_end (settings_button);
+        
+        // Button that runs code
         Gtk.Button run_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic",Gtk.IconSize.LARGE_TOOLBAR);
         run_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>R"}, _("Run Script"));
         pack_end (run_button);
@@ -46,6 +51,7 @@ public class JSTest.HeaderBar : Gtk.HeaderBar {
         CopyButton copy_button = CopyButton.get_instance ();
         pack_end (copy_button);
         
+        // Run code
         run_button.clicked.connect (() => {
             
             WebView web_view = WebView.get_instance ();

@@ -37,8 +37,9 @@ public class JSTest.SourceView : Gtk.SourceView {
 
     // Deals with styling, primarily
     public Gtk.SourceStyleSchemeManager style_scheme_manager;
+    public Gtk.SourceBuffer source_buffer;
 
-    static SourceView? instance;
+    public static SourceView? instance;
 
     public SourceView (){
         Object (
@@ -76,35 +77,14 @@ public class JSTest.SourceView : Gtk.SourceView {
                 //override_font (Pango.FontDescription.from_string (code_settings.get_string ("font")));
 
 
-                    string[] font = settings.font.split (" ", -1);
-
-                    string font_size = font [font.length - 1] + "pt";
-         //           font.remove_index (font.length);
-                    string font_name = "";
-                    foreach (string current in font) {
-                        if (current != font [font.length - 1]) {
-                            font_name += current;
-                                font_name += " ";
-
-                        }
-
-                    } //endforeach
-
-                        Granite.Widgets.Utils.set_theming_for_screen (this.get_screen (),
-                                                                        ".sourceview { font-family:\"" +
-                                                                         font_name +
-                                                                        "\"; " +
-                                                                       "font-size: " +
-                                                                        font_size +
-                                                                        ";}",
-                                                                        Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+                    set_font ();
 
 
                             // Create language manager
                     language_manager = Gtk.SourceLanguageManager.get_default ();
 
 
-                    Gtk.SourceBuffer source_buffer = new Gtk.SourceBuffer (null);
+                    source_buffer = new Gtk.SourceBuffer (null);
                     set_buffer (source_buffer);
                     style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
                         // Highlight JavaScript
@@ -141,6 +121,86 @@ public class JSTest.SourceView : Gtk.SourceView {
             }); //end cut_clipboard.connect
 
     }//endconstruct
+    
+    
+    // Set the font
+    private void set_font () {
+        string font_style;
+        int font_weight;
+        
+        string[] font = settings.font.split (" ", -1);
+
+        string font_size = font [font.length - 1] + "pt";
+        string font_name = "";
+        foreach (string current in font) {
+            if (current != font [font.length - 1]) {
+                font_name += current;
+                font_name += " ";
+
+            }
+            
+
+        } //endforeach
+        
+        if (font_name.contains ("Italic")) {
+            font_style = "italic";
+            font_name.replace ("Italic", "");
+            message ("Italic text");
+        }
+        else {
+            font_style = "normal";
+            font_name.replace ("Regular", "");
+        }
+        
+        
+        
+        if (font_name.contains ("Bold")) {
+            font_weight = 900;
+            font_name.replace ("Bold", "");
+        }
+        else if (font_name.contains ("Medium")) {
+            font_weight = 700;
+            font_name.replace ("Medium", "");
+        }
+        else if (font_name.contains ("Thin")) {
+            font_weight = 300;
+            font_name.replace ("Thin", "");
+        }
+        else {
+            font_weight = 500;
+        }
+
+            Granite.Widgets.Utils.set_theming_for_screen (this.get_screen (),
+                                                            ".sourceview { font-family:\"" +
+                                                             font_name +
+                                                            "\"; " +
+                                                           "font-size: " +
+                                                            font_size +
+                                                            ";" +
+                                                            "font-weight: " + 
+                                                            font_weight.to_string () + 
+                                                            ";" + 
+                                                            "font-style: " + 
+                                                            font_style +
+                                                            ";}",
+                                                            
+                                                            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        message (font_name + " " + font_size);
+    }
+    
+    
+
+    public void update_style () {
+        if (this != null) {
+            // Color styling
+            source_buffer.set_style_scheme (style_scheme_manager.get_scheme (settings.style_scheme));
+            
+            set_font ();
+        }
+        else {
+            error ("SourceView is null!");
+        }
+    }
 
 
     public static SourceView get_instance () {

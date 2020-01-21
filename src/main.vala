@@ -22,6 +22,8 @@
 
 public class JSTest.Application : Gtk.Application {
     private SettingsManager settings;
+    
+    public Gtk.CssProvider css_provider;
 
     //  = new Settings (Constants.APPLICATION_NAME);
 
@@ -48,7 +50,9 @@ public class JSTest.Application : Gtk.Application {
         JSTest.MainWindow main_window = new JSTest.MainWindow (this);
         
         
-        
+        css_provider = new Gtk.CssProvider ();
+        css_provider.load_from_resource ("com/github/timecraft/jstest/Application.css");
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         
         
         shutdown.connect ( () => {
