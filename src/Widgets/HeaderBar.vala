@@ -24,14 +24,13 @@ using Granite.Widgets;
 
 public class JSTest.HeaderBar : Gtk.HeaderBar {
     static HeaderBar? instance;
-
+    private SettingsManager? settings;
     HeaderBar () {
 
     }
     construct {
-        if (does_schema_exist ("io.elementary.code.settings")) {
-            GLib.Settings code_settings = new GLib.Settings ("io.elementary.code.settings");
-            if (code_settings.get_boolean ("prefer-dark-style")){
+        if (settings != null) {
+            if (settings.get_boolean ("prefer-dark-style")){
                 Utils.set_theming_for_screen (this.get_screen (), "@define-color textColorPrimary rgba (0,0,0,1);", Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
             }//endif (prefers dark style)
         }//endif (does_schema_exist)

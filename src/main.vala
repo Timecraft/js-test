@@ -21,7 +21,7 @@
 
 
 public class JSTest.Application : Gtk.Application {
-    private Settings app_settings;
+    private SettingsManager settings;
 
     //  = new Settings (Constants.APPLICATION_NAME);
 
@@ -43,17 +43,25 @@ public class JSTest.Application : Gtk.Application {
     }//endconstruct
 
     protected override void activate () {
+        settings = new SettingsManager (Constants.APPLICATION_NAME);
+        // SettingsManager.make_instance (Constants.APPLICATION_NAME);
         JSTest.MainWindow main_window = new JSTest.MainWindow (this);
-
+        
+        
+        
+        
+        
         shutdown.connect ( () => {
             File destroyer =  File.new_for_path ("jstest.js");
             destroyer.delete_async.begin (Priority.DEFAULT, null);
             message ("\"jstest.js\" has been deleted");
+            settings.save_variables ();
         }); //end shutdown.connect
 
-
-        if (does_schema_exist (Constants.APPLICATION_NAME)) {
-            app_settings = new Settings (Constants.APPLICATION_NAME);
+        
+        
+        if (settings != null) {
+            
             go_to_last_saved_position (main_window);
             go_to_last_saved_size (main_window);
         }//endif (does_schema_exist)
@@ -62,7 +70,7 @@ public class JSTest.Application : Gtk.Application {
 
         private void go_to_last_saved_position (MainWindow main_window) {
             int window_x, window_y;
-            app_settings.get ("window-position", "(ii)", out window_x, out window_y);
+            settings.get ("window-position", "(ii)", out window_x, out window_y);
             if (window_x != -1 || window_y != -1) {
                 main_window.move (window_x, window_y);
             }//endif (window_x != -1,etc)
@@ -71,10 +79,10 @@ public class JSTest.Application : Gtk.Application {
         private void go_to_last_saved_size (MainWindow main_window) {
             var rect = Gtk.Allocation ();
 
-            app_settings.get ("window-size", "(ii)", out rect.width, out rect.height);
+            settings.get ("window-size", "(ii)", out rect.width, out rect.height);
             main_window.set_allocation (rect);
 
-            if (app_settings.get_boolean ("window-maximized")) {
+            if (settings.window_maximized) {
                 main_window.maximize ();
             }//endif (app_settings.get_boolean)
         }

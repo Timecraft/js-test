@@ -32,10 +32,10 @@ public class JSTest.MainWindow : Gtk.Window {
     private WebView web_view = WebView.get_instance ();
     private Overlay overlay = Overlay.get_instance ();
     
-    private Settings app_settings;
+    private SettingsManager settings;
     private uint configure_id;
 
-    private bool schema_exists = false;
+    
 
 
     public MainWindow (Gtk.Application application) {
@@ -56,7 +56,8 @@ public class JSTest.MainWindow : Gtk.Window {
         add (overlay);
         set_titlebar (header_bar);
         add_shortcuts ();
-        schema_exists = does_schema_exist (Constants.APPLICATION_NAME);
+        
+        //settings = new SettingsManager (Constants.APPLICATION_NAME);
 
     }//endconstruct
 
@@ -90,8 +91,8 @@ public class JSTest.MainWindow : Gtk.Window {
     
     public override bool configure_event (Gdk.EventConfigure event) {
         
-        if (schema_exists) {
-            app_settings = new Settings (Constants.APPLICATION_NAME);
+        if (settings != null) {
+
          
             if (configure_id != 0) {
                 GLib.Source.remove (configure_id);
@@ -101,19 +102,19 @@ public class JSTest.MainWindow : Gtk.Window {
                 configure_id = 0;
 
                 if (is_maximized) {
-                    app_settings.set_boolean ("window-maximized", true);
+                    settings.set_boolean ("window-maximized", true);
                 } //endif (is_maximized)
                 else {
-                    app_settings.set_boolean ("window-maximized", false);
+                    settings.set_boolean ("window-maximized", false);
         
                     Gdk.Rectangle rect;
                     get_allocation (out rect);
-                    app_settings.set ("window-size", "(ii)", rect.width, rect.height);
+                    settings.set ("window-size", "(ii)", rect.width, rect.height);
                     
         
                     int root_x, root_y;
                     get_position (out root_x, out root_y);
-                    app_settings.set ("window-position", "(ii)", root_x, root_y);
+                    settings.set ("window-position", "(ii)", root_x, root_y);
                 }//endelse
         
                 return base.configure_event (event);

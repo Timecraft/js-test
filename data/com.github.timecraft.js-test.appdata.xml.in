@@ -13,7 +13,6 @@
         <p>Features:</p>
         <ul>
             <li>Test some JavaScript without having to fire up a web browser or node.js.</li>
-            <li>Inherits editor style from elementary Code</li>
             <li>Run your JavaScript with a simple shortcut (ctrl+r)</li>
         </ul>
     </description>
