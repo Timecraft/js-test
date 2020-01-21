@@ -8,7 +8,7 @@
 | **White** | **Light** | **Dark** |
 | -------- | -------- | --------- |
 |![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.white.png)| ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.light.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.dark.png) 
-|![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.white.png)| | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.light.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.dark.png)
+|![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.white.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.light.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.dark.png)
 
 <br/>
 <br/>
