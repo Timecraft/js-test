@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.timecraft.js-test\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-13 19:02+0000\n"
+"POT-Creation-Date: 2020-01-21 20:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,12 @@ msgstr ""
 msgid "An error occurred"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:41
+#: src/Widgets/HeaderBar.vala:40
 msgid "JS Test"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:44
+#. Button that runs code
+#: src/Widgets/HeaderBar.vala:48
 msgid "Run Script"
 msgstr ""
 
@@ -34,6 +35,6 @@ msgstr ""
 msgid "Script copied to clipboard"
 msgstr ""
 
-#: src/Widgets/CopyButton.vala:39
+#: src/Widgets/CopyButton.vala:42
 msgid "Copy Script"
 msgstr ""
