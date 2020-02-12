@@ -1,8 +1,10 @@
 # JSTest
 ## Test some JavaScript
 
-[![BuildStatus](https://travis-ci.org/Timecraft/js_test.svg?branch=master)](https://travis-ci.org/Timecraft/js_test)
 [![AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.timecraft.js-test)
+
+[![BuildStatus](https://travis-ci.org/Timecraft/js_test.svg?branch=master)](https://travis-ci.org/Timecraft/js_test)
+
 
 ### Screenshots
 
