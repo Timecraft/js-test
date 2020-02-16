@@ -1,33 +1,39 @@
-# Define project name
-project ('com.github.timecraft.js-test', 
-    'vala', 'c',
-    version: '0.1.0'
-)
+project ('com.github.timecraft.js-test', 'vala', 'c', version: '0.1.0')
 
-
-
-# GNOME and i18n
 gnome = import ('gnome')
 i18n = import ('i18n')
 
-
-# Arguments
-add_global_arguments ('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name ()), language:'c')
-
-# C Compiler
-cc = meson.get_compiler ('c')
-
-as_resources = gnome.compile_resources(
-    'as-resources', 'data/gresource.xml',
-    source_dir: 'data'
+add_project_arguments (
+    '-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name ()),
+    language: 'c'
 )
 
-# Executable lives here
+asresources = gnome.compile_resources (
+    'as-resources',
+    'data/' + meson.project_name () + '.gresource.xml',
+    source_dir: 'data',
+    c_name: 'as'
+)
+
+dependencies = [
+    dependency ('granite'),
+    dependency ('gtk+-3.0'),
+    dependency ('gtksourceview-3.0'),
+    dependency ('glib-2.0'),
+    dependency ('webkit2gtk-4.0')
+]
+
 subdir ('src')
 
+executable (
+    meson.project_name (),
+    asresources,
+    sources,
+    dependencies: dependencies,
+    install:true
+)
 
-# Subdirectories with meson.build files
 subdir ('data')
 subdir ('po')
 
-meson.add_install_script(join_paths('meson', 'post_install.py'))
+meson.add_install_script ('meson/post_install.py')

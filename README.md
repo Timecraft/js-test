@@ -13,13 +13,6 @@
 |![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.white.png)| ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.light.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.dark.png)
 |![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.white.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.light.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.dark.png)
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-
 
 ### Building, Testing, and Installation
 #### Dependencies
@@ -33,7 +26,9 @@
 - meson
 
 ##### A one liner
-`sudo apt install valac libgtk-3-dev libgranite-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev elementary-sdk meson`
+```bash
+sudo apt install valac libgtk-3-dev libgranite-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev elementary-sdk meson
+```
 
 #### Installation
 

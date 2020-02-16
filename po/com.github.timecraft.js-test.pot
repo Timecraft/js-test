@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.timecraft.js-test\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-21 20:32+0000\n"
+"POT-Creation-Date: 2020-02-16 13:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,12 +25,10 @@ msgstr ""
 msgid "JS Test"
 msgstr ""
 
-#. Button that runs code
 #: src/Widgets/HeaderBar.vala:48
 msgid "Run Script"
 msgstr ""
 
-#. private Gtk.AccelGroup accel_group = new Gtk.AccelGroup ();
 #: src/Widgets/CopyButton.vala:29
 msgid "Script copied to clipboard"
 msgstr ""
