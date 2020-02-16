@@ -1,13 +1,23 @@
-project ('com.github.timecraft.js-test', 'vala', 'c', version: '0.1.0')
+# Project name, programming language and version
+project (
+    'com.github.timecraft.js-test',
+    'vala', 'c',
+    version: '0.1.0'
+)
 
+# GNOME module
 gnome = import ('gnome')
+
+# Translation module
 i18n = import ('i18n')
 
+# Project arguments
 add_project_arguments (
     '-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name ()),
     language: 'c'
 )
 
+# Compiling resources
 asresources = gnome.compile_resources (
     'as-resources',
     'data/' + meson.project_name () + '.gresource.xml',
@@ -15,6 +25,7 @@ asresources = gnome.compile_resources (
     c_name: 'as'
 )
 
+# Listing dependencies
 dependencies = [
     dependency ('granite'),
     dependency ('gtk+-3.0'),
@@ -25,6 +36,7 @@ dependencies = [
 
 subdir ('src')
 
+# Define executable
 executable (
     meson.project_name (),
     asresources,
