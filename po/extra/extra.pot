@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-16 13:17+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.timecraft.js-test.desktop.in:4
+#: data/com.github.timecraft.js-test.appdata.xml.in:8
+msgid "JS Test"
+msgstr ""
+
+#: data/com.github.timecraft.js-test.desktop.in:5
+msgid "JavaScript Tester"
+msgstr ""
+
+#: data/com.github.timecraft.js-test.desktop.in:6
+msgid "Test some JavaScript"
+msgstr ""
+
+#: data/com.github.timecraft.js-test.desktop.in:9
+msgid "com.github.timecraft.js-test"
+msgstr ""
+
+#: data/com.github.timecraft.js-test.desktop.in:13
+msgid "JavaScript;GUI;Development;"
+msgstr ""
+
+#: data/com.github.timecraft.js-test.appdata.xml.in:9
+msgid "Test your JavaScript"
+msgstr ""
+
+#: data/com.github.timecraft.js-test.appdata.xml.in:12
+msgid "A tool to run some JavaScript."
+msgstr ""
+
+#: data/com.github.timecraft.js-test.appdata.xml.in:13
+msgid "Features:"
+msgstr ""
+
+#: data/com.github.timecraft.js-test.appdata.xml.in:15
+msgid ""
+"Test some JavaScript without having to fire up a web browser or node.js."
+msgstr ""
+
+#: data/com.github.timecraft.js-test.appdata.xml.in:16
+msgid "Run your JavaScript with a simple shortcut (ctrl+r)"
+msgstr ""
+
+#: data/com.github.timecraft.js-test.appdata.xml.in:55
+msgid "Initial release to AppCenter"
+msgstr ""
+
+#: data/com.github.timecraft.js-test.appdata.xml.in:82
+msgid "Timecraft"
+msgstr ""
