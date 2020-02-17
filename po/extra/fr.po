@@ -1,68 +1,69 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# French translations for extra package.
+# Copyright (C) 2020 THE extra'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Nathan Bonnemains (@NathanBnm), 2020.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-17 16:12+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2020-02-17 16:12+0100\n"
+"Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
+"Language-Team: none\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: data/com.github.timecraft.js-test.desktop.in:4
 #: data/com.github.timecraft.js-test.appdata.xml.in:8
 msgid "JS Test"
-msgstr ""
+msgstr "JS Test"
 
 #: data/com.github.timecraft.js-test.desktop.in:5
 msgid "JavaScript Tester"
-msgstr ""
+msgstr "Testeur de code JavaScript"
 
 #: data/com.github.timecraft.js-test.desktop.in:6
 msgid "Test some JavaScript"
-msgstr ""
+msgstr "Testez du code JavaScript"
 
-#: data/com.github.timecraft.js-test.desktop.in:9
+#: data/com.github.timecraft.ASCIIjs-test.desktop.in:9
 msgid "com.github.timecraft.js-test"
-msgstr ""
+msgstr "com.github.timecraft.js-test"
 
 #: data/com.github.timecraft.js-test.desktop.in:13
 msgid "JavaScript;GUI;Development;"
-msgstr ""
+msgstr "JavaScript;Interface;Développement;"
 
 #: data/com.github.timecraft.js-test.appdata.xml.in:9
 msgid "Test your JavaScript"
-msgstr ""
+msgstr "Testez votre code JavaScript"
 
 #: data/com.github.timecraft.js-test.appdata.xml.in:12
 msgid "A tool to run some JavaScript."
-msgstr ""
+msgstr "Un outil pour éxecuter du code JavaScript."
 
 #: data/com.github.timecraft.js-test.appdata.xml.in:13
 msgid "Features:"
-msgstr ""
+msgstr "Fonctionnalités :"
 
 #: data/com.github.timecraft.js-test.appdata.xml.in:15
 msgid ""
 "Test some JavaScript without having to fire up a web browser or node.js."
 msgstr ""
+"Testez du code JavaScript sans avoir a démarrer un navigateur Web ou Node.js."
 
 #: data/com.github.timecraft.js-test.appdata.xml.in:16
 msgid "Run your JavaScript with a simple shortcut (ctrl+r)"
-msgstr ""
+msgstr "Exécutez votre code JavaScript avec un simple raccourci (Ctrl + R)"
 
 #: data/com.github.timecraft.js-test.appdata.xml.in:55
 msgid "Initial release to AppCenter"
-msgstr ""
+msgstr "Version initiale pour le Centre d'Applications"
 
 #: data/com.github.timecraft.js-test.appdata.xml.in:82
 msgid "Timecraft"
-msgstr ""
+msgstr "Timecraft"
