@@ -83,17 +83,19 @@ public class JSTest.WebView : WebKit.WebView {
                                 <html>
                                     <head>
                                         <title>JS Test</title>
+                                    </head>
+                                    <body id="body">
+                                    </body>
                                         <script>
-                                            debugger;
+                                        
                             """;
 
         string html_end =   """
                                         </script>
-                                    </head>
-                                    <body>
-                                    </body>
+                                    
+                                    
                                 </html>
-                            """
+                            """;
 
         message ("Running script...");
 
