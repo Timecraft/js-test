@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-17 16:12+0100\n"
+"POT-Creation-Date: 2020-02-21 13:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,10 +59,23 @@ msgstr ""
 msgid "Run your JavaScript with a simple shortcut (ctrl+r)"
 msgstr ""
 
-#: data/com.github.timecraft.js-test.appdata.xml.in:55
+#: data/com.github.timecraft.js-test.appdata.xml.in:57
+msgid "Made the WebView load a more proper HTML-like document."
+msgstr ""
+
+#: data/com.github.timecraft.js-test.appdata.xml.in:58
+msgid "Now you can properly select the body element"
+msgstr ""
+
+#. French translation thanks to @NathanBnm
+#: data/com.github.timecraft.js-test.appdata.xml.in:65
+msgid "French translation brought to you by Nathan Bonnemains"
+msgstr ""
+
+#: data/com.github.timecraft.js-test.appdata.xml.in:73
 msgid "Initial release to AppCenter"
 msgstr ""
 
-#: data/com.github.timecraft.js-test.appdata.xml.in:82
+#: data/com.github.timecraft.js-test.appdata.xml.in:100
 msgid "Timecraft"
 msgstr ""
