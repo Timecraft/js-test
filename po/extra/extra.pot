@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-21 13:27+0000\n"
+"POT-Creation-Date: 2020-02-24 13:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgstr ""
 
 #. French translation thanks to @NathanBnm
 #: data/com.github.timecraft.js-test.appdata.xml.in:65
-msgid "French translation brought to you by Nathan Bonnemains"
+msgid "French translation brought to you by NathanBnm"
 msgstr ""
 
 #: data/com.github.timecraft.js-test.appdata.xml.in:73
