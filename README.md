@@ -4,7 +4,7 @@
 [![AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.timecraft.js-test)
 
 [![BuildStatus](https://travis-ci.org/Timecraft/js_test.svg?branch=master)](https://travis-ci.org/Timecraft/js_test)
-
+https://weblate.org/fr/
 
 ### Screenshots
 
@@ -14,9 +14,9 @@
 |![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.white.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.light.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.dark.png)
 
 ### Translations
-|                    **User**                    |       **Language**      |
-| ---------------------------------------------- | ----------------------- |
-| [Nathan Bonnemains](https://github.com/NathanBnm) | Français (French) :fr:  |
+|                    **User**               |       **Language**      |
+| ----------------------------------------- | ----------------------- |
+| [NathanBnm](https://github.com/NathanBnm) | Français (French) :fr:  |
 
 ### Building, Testing, and Installation
 #### Dependencies
