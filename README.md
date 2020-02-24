@@ -5,7 +5,6 @@
 
 [![BuildStatus](https://travis-ci.org/Timecraft/js_test.svg?branch=master)](https://travis-ci.org/Timecraft/js_test)
 
-
 ### Screenshots
 
 | **White** | **Light** | **Dark** |
@@ -14,9 +13,9 @@
 |![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.white.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.light.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.dark.png)
 
 ### Translations
-|                    **User**                    |       **Language**      |
-| ---------------------------------------------- | ----------------------- |
-| [Nathan Bonnemains](https://github.com/NathanBnm) | Français (French) :fr:  |
+|                    **User**               |       **Language**      |
+| ----------------------------------------- | ----------------------- |
+| [NathanBnm](https://github.com/NathanBnm) | Français (French) :fr:  |
 
 ### Building, Testing, and Installation
 #### Dependencies
