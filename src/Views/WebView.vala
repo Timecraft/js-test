@@ -47,14 +47,14 @@ public class JSTest.WebView : WebKit.WebView {
         web_settings.set_enable_developer_extras (true);
         set_size_request (Constants.APPLICATION_HEIGHT, Constants.APPLICATION_WIDTH / 2);
         set_settings (web_settings);
-        
+
         settings_manager = SettingsManager.instance;
         // This is here in case complaints come in about WebKit's... bug? dealing with the dark mode having bad contrast
         Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = false;
-        
-        
-        
-        
+
+
+
+
     }//endconstruct
 
 
@@ -62,47 +62,55 @@ public class JSTest.WebView : WebKit.WebView {
         if (instance == null) {
             instance = new WebView ();
             instance.load_html ("",null);
-            
+
             inspector = instance.get_inspector ();
-            
-            
+
+
             inspector.closed.connect ( () => {
                 instance.inspector_is_shown = false;
             });
-            
-            
+
+
         }
-        
+
         return instance;
     }
-    
-    
+
+
     public void run_code () {
-        
+        string html_start = """
+                                <!DOCTYPE html>
+                                <html>
+                                    <head>
+                                        <title>JS Test</title>
+                                    </head>
+                                    <body id="body">
+                                    </body>
+                                        <script>
+                                        
+                            """;
+
+        string html_end =   """
+                                        </script>
+                                    
+                                    
+                                </html>
+                            """;
+
         message ("Running script...");
-        
-        load_html ("""
-        <!DOCTYPE html>
-        <html>
-            <head>
-                <script>
-                debugger;
-        """ + 
-                    file_manager.read_file () + 
-        """
-                </script>
-            </head>
-        </html>
-        """, 
+
+        load_html ( html_start +
+                    file_manager.read_file () +
+                    html_end,
         "JS Test");
-        
-        
-        
+
+
+
         if (!inspector_is_shown) {
             inspector.show ();
             inspector_is_shown = true;
         }
-        
-        
+
+
     }
 }
