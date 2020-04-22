@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <schema path="/com/github/timecraft/jstest/" id="com.github.timecraft.jstest">
+        <key name="window-maximized" type="b">
+            <default>false</default>
+            <summary>Maximized</summary>
+            <description>Whether the window is maximized</description>
+        </key>
+        <key name="window-position" type="(ii)">
+            <default>(1024, 750)</default>
+            <summary>Window position</summary>
+            <description>Most recent window position (x, y)</description>
+        </key>
+        <key name="window-size" type="(ii)">
+            <default>(-1, -1)</default>
+            <summary>Window size</summary>
+            <description>Most recent window size (width, height)</description>
+        </key>
+
+
+    <!-- Schema that origninates from io.elementary.code -->
+        <key name="auto-indent" type="b">
+            <default>true</default>
+            <summary>Use auto indent</summary>
+            <description>Whether Code should use auto indentation</description>
+        </key>
+        <key name="spaces-instead-of-tabs" type="b">
+            <default>true</default>
+            <summary>Use spaces instead of tabs</summary>
+            <description>Whether Code should replace tabs with spaces</description>
+        </key>
+        <key name="show-right-margin" type="b">
+            <default>false</default>
+            <summary>Show the right margin</summary>
+            <description>Specifies if the Source view should show the right margin or not.</description>
+        </key>
+        <key name="prefer-dark-style" type="b">
+            <default>false</default>
+            <summary>Request dark Gtk stylesheet variant</summary>
+            <description>Switches between dark and light style</description>
+        </key>
+
+        <key name="indent-width" type="i">
+            <default>4</default>
+            <summary>Tab Size</summary>
+            <description>Specifies the number of spaces that should be displayed instead of Tab characters.</description>
+        </key>
+        <key name="right-margin-position" type="i">
+            <default>80</default>
+            <summary>Right margin position</summary>
+            <description>Specifies the right margin position.</description>
+        </key>
+
+        <key name="font" type="s">
+            <default>'Droid Sans Mono 10'</default>
+            <summary>Preferred Font</summary>
+            <description>Set the preferred font.</description>
+        </key>
+
+        <key name="style-scheme" type="s">
+            <default>'solarized-dark'</default>
+            <summary>Preferred Style Scheme</summary>
+            <description>Set the preferred style scheme.</description>
+        </key>
+    </schema>
+</schemalist>
