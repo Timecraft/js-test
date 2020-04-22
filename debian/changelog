@@ -1,3 +1,34 @@
+com.github.timecraft.js-test (0.1.2) bionic; urgency=medium
+
+  * Merge pull request #76 from Timecraft/master
+  * Re-create all commits up to what should have been v0.2.0
+  * Merge pull request #75 from Timecraft/hera
+  * Merge pull request #74 from Timecraft/revert-73-master
+  * Revert "Release v0.2.0"
+  * Merge pull request #73 from Timecraft/master
+  * Changed application_id to reflect actual executable name
+  * Update translation template
+  * Updated app data.xml to use preferred identifier
+  * Merge pull request #72 from NathanBnm/patch-1
+  * Remove unwanted pasted link
+  * Update README.md
+  * Merge branch 'master' of https://github.com/Timecraft/js-test
+  * Recognize French translator in README.md
+  * Update translation template
+  * Began preparing for new release; French translation appreciation
+  * Fixed <body> being null
+  * Made the WebView load a more standard html document
+  * Merge pull request #71 from NathanBnm/add-fr
+  * Add French translations
+  * Merge pull request #70 from NathanBnm/refactor
+  * Add comments to meson.build files
+  * Set Node.js version to 10.17.0
+  * Refactoring
+  * Added spacing between Travis CI and AppCenter badge
+  * Added AppCenter Badge to README.md
+
+ -- Timecraft <timemaster23x@gmail.com>  Wed, 22 Apr 2020 17:53:54 +0000
+
 com.github.timecraft.js-test (0.1.1) bionic; urgency=medium
 
   * no changes since last release.
