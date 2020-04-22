@@ -51,24 +51,6 @@
     </content_rating>
 
     <releases>
-        <release version="0.1.2" date="" urgency="low">
-            <description>
-              <ul>
-                <li>Made the WebView load a more proper HTML-like document.</li>
-                <li>Now you can properly select the body element</li>
-                
-                <!-- There are new translations! -->
-                <li>
-                  Updated translations
-                  <ul>
-                    <!-- French translation thanks to @NathanBnm -->
-                    <li>French translation brought to you by NathanBnm</li>
-                  </ul>
-                </li>
-                </ul>
-            </description>
-        </release>
-        
         <release version="0.1.1" date="2019-11-13" urgency="low">
             <description>
                 Initial release to AppCenter
