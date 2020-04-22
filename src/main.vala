@@ -22,14 +22,14 @@
 
 public class JSTest.Application : Gtk.Application {
     private SettingsManager settings;
-
+    
     public Gtk.CssProvider css_provider;
 
     //  = new Settings (Constants.APPLICATION_NAME);
 
     public Application () {
         Object (
-            application_id: "com.github.timecraft.js-test",
+            application_id: "com.github.timecraft.jstest",
             flags: ApplicationFlags.FLAGS_NONE
         );
     }
@@ -48,13 +48,13 @@ public class JSTest.Application : Gtk.Application {
         settings = new SettingsManager (Constants.APPLICATION_NAME);
         // SettingsManager.make_instance (Constants.APPLICATION_NAME);
         JSTest.MainWindow main_window = new JSTest.MainWindow (this);
-
-
+        
+        
         css_provider = new Gtk.CssProvider ();
         css_provider.load_from_resource ("com/github/timecraft/jstest/Application.css");
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-
+        
+        
         shutdown.connect ( () => {
             File destroyer =  File.new_for_path ("jstest.js");
             destroyer.delete_async.begin (Priority.DEFAULT, null);
@@ -62,10 +62,10 @@ public class JSTest.Application : Gtk.Application {
             settings.save_variables ();
         }); //end shutdown.connect
 
-
-
+        
+        
         if (settings != null) {
-
+            
             go_to_last_saved_position (main_window);
             go_to_last_saved_size (main_window);
         }//endif (does_schema_exist)

@@ -1,21 +1,22 @@
 # JSTest
 ## Test some JavaScript
 
-[![AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.timecraft.js-test)
-
 [![BuildStatus](https://travis-ci.org/Timecraft/js_test.svg?branch=master)](https://travis-ci.org/Timecraft/js_test)
 
 ### Screenshots
 
 | **White** | **Light** | **Dark** |
 | -------- | -------- | --------- |
-|![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.white.png)| ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.light.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.dark.png)
+|![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.white.png)| ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.light.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.mainwindow.dark.png) 
 |![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.white.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.light.png) | ![JSTestScreenshot](https://github.com/Timecraft/JS_Test/blob/master/data/images/com.github.timecraft.js-test.sample.dark.png)
 
-### Translations
-|                    **User**               |       **Language**      |
-| ----------------------------------------- | ----------------------- |
-| [NathanBnm](https://github.com/NathanBnm) | Français (French) :fr:  |
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
 
 ### Building, Testing, and Installation
 #### Dependencies
@@ -29,9 +30,7 @@
 - meson
 
 ##### A one liner
-```bash
-sudo apt install valac libgtk-3-dev libgranite-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev elementary-sdk meson
-```
+`sudo apt install valac libgtk-3-dev libgranite-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev elementary-sdk meson`
 
 #### Installation
 
